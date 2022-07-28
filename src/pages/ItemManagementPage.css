@@ -2,6 +2,7 @@
 
 .item-mgmt-page__list-wrapper {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .item-mgmt-page__item-wrapper {
