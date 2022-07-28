@@ -2,6 +2,7 @@ import { Item } from "./types/Item"
 
 const mockItemList: Item[] = [
     {
+        id: 'ygf4eui8',
         name: 'Pão de forma Visconti',
         amount: 1,
         expirationDate: '11/08/2022',
@@ -10,6 +11,7 @@ const mockItemList: Item[] = [
         weight: 400
     },
     {
+        id: 'nuy4ujn8',
         name: 'Mussarela Litoral',
         amount: 1,
         expirationDate: '11/08/2022',
