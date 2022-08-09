@@ -16,7 +16,7 @@ const ItemManagementPage = () => {
             id: 'hudbhfjd',
             name: 'novo item',
             amount: 1,
-            expirationDate: ',22/12/2022',
+            expirationDate: '22/12/2022',
             price: 44,
             category: 'generic',
             weight: 200,
