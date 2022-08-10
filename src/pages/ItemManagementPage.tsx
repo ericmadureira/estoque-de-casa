@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { collection, query, onSnapshot } from 'firebase/firestore'
+import { firebaseApp } from '../firebase'
 
 import { Item } from '../types/Item'
-import mockItemList from '../mockItems'
 
 import './ItemManagementPage.css'
 
 
 const ItemManagementPage = () => {
-    const [itemList, setItemList] = useState<Item[]>(mockItemList)
+    const [itemList, setItemList] = useState<Item[]>([])
     const [searchInput, setSearchInput] = useState<string>('')
 
     const handleAddNewItem = () => {
@@ -28,6 +29,18 @@ const ItemManagementPage = () => {
         event.preventDefault()
         setSearchInput(event.target.value)
     }
+
+    useEffect(() => {
+        const q = query(
+            collection(firebaseApp, 'products')
+        )
+        onSnapshot(q, (querySnapshot) => {
+            querySnapshot.docs.forEach(doc => {
+                console.log('doc id: ', doc.id)
+                console.log('doc data: ', doc.data())
+            })
+        })
+    }, [])
 
     return (
         <div className='item-mgmt-page__page-wrapper'>
