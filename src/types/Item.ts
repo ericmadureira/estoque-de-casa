@@ -4,7 +4,8 @@ interface ExpirationDate {
 }
 
 export interface Item {
-    id: string
+    id: string // Provided by firebase on creation
+
     name: string
     amount: number
     expirationDate: ExpirationDate

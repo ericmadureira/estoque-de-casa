@@ -1,0 +1,9 @@
+.add-item__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-item__inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+}
