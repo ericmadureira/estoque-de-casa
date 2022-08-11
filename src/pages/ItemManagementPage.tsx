@@ -17,7 +17,7 @@ const ItemManagementPage = () => {
             id: 'hudbhfjd',
             name: 'novo item',
             amount: 1,
-            expirationDate: '22/12/2022',
+            expirationDate: { seconds: 1660060689, nanoseconds: 586000000 },
             price: 44,
             category: 'generic',
             weight: 200,
@@ -31,14 +31,14 @@ const ItemManagementPage = () => {
     }
 
     useEffect(() => {
-        const q = query(
-            collection(firebaseApp, 'products')
-        )
+        const q = query(collection(firebaseApp, 'products'))
         onSnapshot(q, (querySnapshot) => {
-            querySnapshot.docs.forEach(doc => {
-                console.log('doc id: ', doc.id)
-                console.log('doc data: ', doc.data())
-            })
+            setItemList(
+                querySnapshot.docs.map(doc => {
+                    const item = { id: doc.id, ...doc.data() } as Item
+                    return item
+                })
+            )
         })
     }, [])
 
@@ -63,7 +63,7 @@ const ItemManagementPage = () => {
                             <div key={item.id} className='item-mgmt-page__item-wrapper'>
                                 <div>name: {item.name}</div>
                                 <div>amount: {item.amount}</div>
-                                <div>expirationDate: {item.expirationDate}</div>
+                                <div>expirationDate: {item.expirationDate.seconds}</div>
                                 <div>price: R${item.price}</div>
                                 <div>category: {item.category}</div>
                                 <div>weight: {item.weight} g</div>

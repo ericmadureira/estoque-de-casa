@@ -5,7 +5,7 @@ const mockItemList: Item[] = [
         id: 'ygf4eui8',
         name: 'Pão de forma Visconti',
         amount: 1,
-        expirationDate: '11/08/2022',
+        expirationDate: { seconds: 1660060689, nanoseconds: 586000000 },
         price: 5.50,
         category: 'food',
         weight: 400
@@ -14,7 +14,7 @@ const mockItemList: Item[] = [
         id: 'nuy4ujn8',
         name: 'Mussarela Litoral',
         amount: 1,
-        expirationDate: '11/08/2022',
+        expirationDate: { seconds: 1660060689, nanoseconds: 586000000 },
         price: 5.50,
         category: 'food',
         weight: 300
