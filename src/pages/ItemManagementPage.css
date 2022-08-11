@@ -1,4 +1,7 @@
-.item-mgmt-page__page-wrapper {}
+.item-mgmt-page__page-wrapper {
+    display: flex;
+    flex-direction: column;
+}
 
 .item-mgmt-page__list-wrapper {
     display: flex;

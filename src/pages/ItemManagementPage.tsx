@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { collection, query, onSnapshot } from 'firebase/firestore'
 import { firebaseApp } from '../firebase'
 
+import AddItem from '../components/AddItem'
 import { Item } from '../types/Item'
 
 import './ItemManagementPage.css'
@@ -30,13 +31,13 @@ const ItemManagementPage = () => {
         setSearchInput(event.target.value)
     }
 
+    // Brings all products from DB
     useEffect(() => {
         const q = query(collection(firebaseApp, 'products'))
         onSnapshot(q, (querySnapshot) => {
             setItemList(
                 querySnapshot.docs.map(doc => {
-                    const item = { id: doc.id, ...doc.data() } as Item
-                    return item
+                    return { id: doc.id, ...doc.data() } as Item
                 })
             )
         })
@@ -44,10 +45,10 @@ const ItemManagementPage = () => {
 
     return (
         <div className='item-mgmt-page__page-wrapper'>
-            <h1>Lista de itens</h1>
-            <button onClick={handleAddNewItem}>Add</button>
+            <h1>Estoque atual</h1>
+            <AddItem handleAddNewItem={handleAddNewItem} />
             <div className='item-mgmt-page__search-wrapper'>
-                <span className='item-mgmt-page__search-wrapper'>Search: </span>
+                <span className='item-mgmt-page__search-wrapper'>Filtrar: </span>
                 <input
                     className='item-mgmt-page__search-wrapper'
                     type="text"
