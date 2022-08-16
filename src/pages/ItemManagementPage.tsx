@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { collection, query, onSnapshot } from 'firebase/firestore'
+import { collection, query, onSnapshot, addDoc } from 'firebase/firestore'
 import { firebaseApp } from '../firebase'
+import { useNavigate } from 'react-router-dom'
 
 import AddItem from '../components/AddItem'
-import { Item } from '../types/Item'
+import { Item, ItemCreationParams } from '../types/Item'
 
 import './ItemManagementPage.css'
 
@@ -11,19 +12,15 @@ import './ItemManagementPage.css'
 const ItemManagementPage = () => {
     const [itemList, setItemList] = useState<Item[]>([])
     const [searchInput, setSearchInput] = useState<string>('')
+    const navigate = useNavigate()
 
-    const handleAddNewItem = () => {
-        let newList = [...itemList]
-        newList.push({
-            id: 'hudbhfjd',
-            name: 'novo item',
-            amount: 1,
-            expirationDate: { seconds: 1660060689, nanoseconds: 586000000 },
-            price: 44,
-            category: 'generic',
-            weight: 200,
-        })
-        setItemList(newList)
+    const handleAddNewItem = async (itemCreationParams: ItemCreationParams) => {
+        try {
+            await addDoc(collection(firebaseApp, 'products'), { ...itemCreationParams })
+            navigate('/')
+        } catch (err) {
+            console.log('Error during fetch: ', err)
+        }
     }
 
     const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
