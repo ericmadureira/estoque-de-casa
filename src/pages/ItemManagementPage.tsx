@@ -9,6 +9,9 @@ import { Item, ItemCreationParams } from '../types/Item'
 import './ItemManagementPage.css'
 
 
+const currencyFormatOptions = { style: 'currency', currency: 'BRL' }
+const expirationDateFormatter = (seconds: number) => new Date(seconds*1000).toLocaleDateString('pt-BR')
+
 const ItemManagementPage = () => {
     const [itemList, setItemList] = useState<Item[]>([])
     const [searchInput, setSearchInput] = useState<string>('')
@@ -59,12 +62,16 @@ const ItemManagementPage = () => {
                         .filter((item: Item) => item.name.toLowerCase().includes(searchInput))
                         .map((item: Item) => (
                             <div key={item.id} className='item-mgmt-page__item-wrapper'>
-                                <div>name: {item.name}</div>
-                                <div>amount: {item.amount}</div>
-                                <div>expirationDate: {item.expirationDate.seconds}</div>
-                                <div>price: R${item.price}</div>
-                                <div>category: {item.category}</div>
-                                <div>weight: {item.weight} g</div>
+                                <div>{item.name}</div>
+                                <div>Qtde.: {item.amount}</div>
+                                <div>
+                                    <>
+                                        Validade: {expirationDateFormatter(item.expirationDate.seconds)}
+                                    </>
+                                </div>
+                                <div>{item.price.toLocaleString('pt-BR', currencyFormatOptions)}</div>
+                                <div>{item.weight} g cada</div>
+                                <div>Categoria: {item.category}</div>
                             </div>
                         ))
                 }

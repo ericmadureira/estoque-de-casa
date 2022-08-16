@@ -39,12 +39,12 @@ const AddItem = ({ handleAddNewItem }: AddItemProps) => {
             }
             { isFormOpen && (
                 <div className='add-item__inputs-wrapper'>
-                    <input onChange={(e) => setFormItemName(e.target.value)} value={formItemName} type='text' placeholder='name' />
-                    <input onChange={(e) => setFormItemAmount(Number(e.target.value))} value={formItemAmount} type='number' placeholder='amount' min={0} />
-                    <input onChange={(e) => setFormItemPrice(Number(e.target.value))} value={formItemPrice} type='number' placeholder='price' min={0} />
-                    <input onChange={(e) => setFormItemcategory(e.target.value)} value={formItemcategory} type='text' placeholder='category' />
-                    <input onChange={(e) => setFormItemWeight(Number(e.target.value))} value={formItemWeight} type='number' placeholder='weight' min={0} />
-                    <input onChange={(e) => setFormItemExpirationDate(e.target.value)} value={formItemExpirationDate} type='datetime-local' placeholder='ExpirationDate' />
+                    <input onChange={(e) => setFormItemName(e.target.value)} value={formItemName} type='text' placeholder='Nome' />
+                    <input onChange={(e) => setFormItemAmount(Number(e.target.value))} value={formItemAmount} type='number' placeholder='Qtde' min={0} />
+                    <input onChange={(e) => setFormItemPrice(Number(e.target.value))} value={formItemPrice} type='number' placeholder='Preço (R$)' min={0} />
+                    <input onChange={(e) => setFormItemcategory(e.target.value)} value={formItemcategory} type='text' placeholder='Categoria' />
+                    <input onChange={(e) => setFormItemWeight(Number(e.target.value))} value={formItemWeight} type='number' placeholder='Peso (g)' min={0} />
+                    <input onChange={(e) => setFormItemExpirationDate(e.target.value)} value={formItemExpirationDate} type='datetime-local' placeholder='Validade' />
                 </div>
             )}
         </div>
