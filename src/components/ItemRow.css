@@ -1,0 +1,13 @@
+.item-row__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.item-row__amount {
+    border-right: solid 1px black;
+    margin: 0 8px 0;
+    width: 20px;
+}
