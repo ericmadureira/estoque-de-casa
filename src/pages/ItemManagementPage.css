@@ -1,6 +1,7 @@
 .item-mgmt-page__page-wrapper {
     display: flex;
     flex-direction: column;
+    margin: 16px;
 }
 
 .item-mgmt-page__list-wrapper {
@@ -10,6 +11,8 @@
 
 .item-mgmt-page__item-wrapper {
     border: 1px solid black;
-    margin: 8px;
+    margin-right: 4px;
+    margin-top: 4px;
     padding: 8px;
+    width: 100%;
 }

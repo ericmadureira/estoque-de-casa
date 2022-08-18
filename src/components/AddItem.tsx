@@ -35,7 +35,7 @@ const AddItem = ({ handleAddNewItem }: AddItemProps) => {
         <div className='add-item__wrapper'>
             { isFormOpen
                 ? (<button onClick={() => handleAddButtonClick()} className='add-item__add-button'>Salvar</button>)
-                : (<button onClick={() => setIsFormOpen(!isFormOpen)} className='add-item__add-button'>Adicionar produto</button>)
+                : (<button onClick={() => setIsFormOpen(!isFormOpen)} className='add-item__add-button'>Adicionar item</button>)
             }
             { isFormOpen && (
                 <div className='add-item__inputs-wrapper'>

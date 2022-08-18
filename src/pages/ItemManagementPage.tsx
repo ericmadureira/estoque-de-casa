@@ -4,13 +4,12 @@ import { firebaseApp } from '../firebase'
 import { useNavigate } from 'react-router-dom'
 
 import AddItem from '../components/AddItem'
+import ItemRow from '../components/ItemRow'
 import { Item, ItemCreationParams } from '../types/Item'
 
 import './ItemManagementPage.css'
 
 
-const currencyFormatOptions = { style: 'currency', currency: 'BRL' }
-const expirationDateFormatter = (seconds: number) => new Date(seconds*1000).toLocaleDateString('pt-BR')
 
 const ItemManagementPage = () => {
     const [itemList, setItemList] = useState<Item[]>([])
@@ -48,32 +47,19 @@ const ItemManagementPage = () => {
             <h1>Estoque atual</h1>
             <AddItem handleAddNewItem={handleAddNewItem} />
             <div className='item-mgmt-page__search-wrapper'>
-                <span className='item-mgmt-page__search-wrapper'>Filtrar: </span>
                 <input
-                    className='item-mgmt-page__search-wrapper'
+                    className='item-mgmt-page__search-input'
                     type="text"
                     value={searchInput}
                     onChange={handleSearchInputChange}
+                    placeholder='Filtrar...'
                 />
             </div>
             <div className='item-mgmt-page__list-wrapper'>
                 {
                     itemList
                         .filter((item: Item) => item.name.toLowerCase().includes(searchInput))
-                        .map((item: Item) => (
-                            <div key={item.id} className='item-mgmt-page__item-wrapper'>
-                                <div>{item.name}</div>
-                                <div>Qtde.: {item.amount}</div>
-                                <div>
-                                    <>
-                                        Validade: {expirationDateFormatter(item.expirationDate.seconds)}
-                                    </>
-                                </div>
-                                <div>{item.price.toLocaleString('pt-BR', currencyFormatOptions)}</div>
-                                <div>{item.weight} g cada</div>
-                                <div>Categoria: {item.category}</div>
-                            </div>
-                        ))
+                        .map((item: Item) => <ItemRow key={item.id} item={item} />)
                 }
             </div>
         </div>
