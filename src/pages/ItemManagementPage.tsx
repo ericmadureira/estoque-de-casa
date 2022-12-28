@@ -30,7 +30,7 @@ const ItemManagementPage = () => {
         setSearchInput(event.target.value)
     }
 
-    // Brings all products from DB
+    // Fetches all items from DB
     useEffect(() => {
         const q = query(collection(firebaseApp, 'products'))
         onSnapshot(q, (querySnapshot) => {
@@ -44,7 +44,6 @@ const ItemManagementPage = () => {
 
     return (
         <div className='item-mgmt-page__page-wrapper'>
-            <h1>Estoque atual</h1>
             <AddItem handleAddNewItem={handleAddNewItem} />
             <div className='item-mgmt-page__search-wrapper'>
                 <input
