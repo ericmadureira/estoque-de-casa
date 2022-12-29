@@ -1,4 +1,5 @@
 import React from 'react'
+import { currencyFormatOptions, expirationDateFormatter } from '../helpers/formatting'
 
 import { Item } from '../types/Item'
 
@@ -7,9 +8,6 @@ import './ItemRow.css'
 interface ItemRowProps {
     item: Item
 }
-
-const currencyFormatOptions = { style: 'currency', currency: 'BRL' }
-const expirationDateFormatter = (seconds: number) => new Date(seconds*1000).toLocaleDateString('pt-BR')
 
 const ItemRow = ({ item }: ItemRowProps) => {
     const { name, amount, expirationDate, price, weight } = item
