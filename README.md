@@ -1,4 +1,5 @@
 # Estoque de casa
+Sistema para controlar os itens da despensa de casa.
 
 ## Features
 - [] alertas de itens faltantes
