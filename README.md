@@ -1,5 +1,5 @@
 # Estoque de casa
-Sistema para controlar os itens da despensa de casa...
+Sistema para controlar os itens da despensa de casa.
 
 ## Features
 - [] registrar por barcode usando celular
