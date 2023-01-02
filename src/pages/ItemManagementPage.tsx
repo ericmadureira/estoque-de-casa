@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { collection, query, onSnapshot, addDoc } from 'firebase/firestore'
+import { collection, query, onSnapshot } from 'firebase/firestore'
 import { firebaseApp } from '../firebase'
 import { useNavigate } from 'react-router-dom'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
 
 import AddItem from '../components/AddItem'
 import { currencyFormatOptions, expirationDateFormatter } from '../helpers/formatting'
+import { addNewItem } from '../services/item-data'
 import { Item, ItemCreationParams } from '../types/Item'
 
 import './ItemManagementPage.css'
+
 
 
 const columns: GridColDef[] = [
@@ -38,12 +40,8 @@ const ItemManagementPage = () => {
     const navigate = useNavigate()
 
     const handleAddNewItem = async (itemCreationParams: ItemCreationParams) => {
-        try {
-            await addDoc(collection(firebaseApp, 'products'), { ...itemCreationParams })
-            navigate('/')
-        } catch (err) {
-            console.log('Error during fetch: ', err)
-        }
+        await addNewItem(itemCreationParams)
+        navigate('/')
     }
 
     const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
