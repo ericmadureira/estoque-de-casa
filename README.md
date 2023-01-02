@@ -8,3 +8,5 @@ Sistema para controlar os itens da despensa de casa.
 - [] histórico de preços por produto
 - [] organizar produtos por categoria ou cômodo da casa
 - [] *fazer scraping em sites de oferta
+
+Criado e mantido por Eric Madureira.
