@@ -49,7 +49,7 @@ const ItemManagementPage = () => {
         setSearchInput(event.target.value)
     }
 
-    // Fetches all items from DB
+    // Fetches all items from db/direbase.
     useEffect(() => {
         const q = query(collection(firebaseApp, 'products'))
         onSnapshot(q, (querySnapshot) => {
