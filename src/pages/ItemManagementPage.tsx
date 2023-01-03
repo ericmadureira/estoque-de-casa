@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { collection, query, onSnapshot } from 'firebase/firestore'
-import { firebaseApp } from '../firebase'
 import { useNavigate } from 'react-router-dom'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
 
 import AddItem from '../components/AddItem'
 import { currencyFormatOptions, expirationDateFormatter } from '../helpers/formatting'
-import { addNewItem } from '../services/item-data'
+import { addNewItem, getAllItems } from '../services/item-data'
 import { Item, ItemCreationParams } from '../types/Item'
 
 import './ItemManagementPage.css'
@@ -51,14 +49,7 @@ const ItemManagementPage = () => {
 
     // Fetches all items from db/direbase.
     useEffect(() => {
-        const q = query(collection(firebaseApp, 'products'))
-        onSnapshot(q, (querySnapshot) => {
-            setItemList(
-                querySnapshot.docs.map(doc => {
-                    return { id: doc.id, ...doc.data() } as Item
-                })
-            )
-        })
+        getAllItems().then(items => setItemList(items))
     }, [])
 
     return (
