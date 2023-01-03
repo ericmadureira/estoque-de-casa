@@ -10,7 +10,6 @@ import { Item, ItemCreationParams } from '../types/Item'
 import './ItemManagementPage.css'
 
 
-
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', flex: 1, hide: true },
     { field: 'name', headerName: 'Nome', flex: 1 },
@@ -47,8 +46,8 @@ const ItemManagementPage = () => {
         setSearchInput(event.target.value)
     }
 
-    // Fetches all items from db/direbase.
     useEffect(() => {
+        // Fetches all items from db/direbase.
         getAllItems().then(items => setItemList(items))
     }, [])
 
@@ -70,8 +69,8 @@ const ItemManagementPage = () => {
                         itemList.filter((item: Item) => item.name.toLowerCase().includes(searchInput))
                     }
                     columns={columns}
-                    pageSize={50}
-                    rowsPerPageOptions={[5]}
+                    pageSize={25}
+                    rowsPerPageOptions={[25]}
                     checkboxSelection
                 />
             </div>
