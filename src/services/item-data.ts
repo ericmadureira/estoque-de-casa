@@ -1,7 +1,7 @@
-import { collection, addDoc } from 'firebase/firestore'
+import { addDoc, collection, getDocs, query } from 'firebase/firestore'
 
 import { firebaseApp } from '../firebase'
-import { ItemCreationParams } from '../types/Item'
+import { Item, ItemCreationParams } from '../types/Item'
 
 // Adds item to db/firebase.
 export const addNewItem = async (itemCreationParams: ItemCreationParams) => {
@@ -10,4 +10,14 @@ export const addNewItem = async (itemCreationParams: ItemCreationParams) => {
     } catch (err) {
         console.log('Error during fetch: ', err)
     }
+}
+
+export const getAllItems = async () => {
+    const q = query(collection(firebaseApp, 'products'))
+    const querySnapshot = await getDocs(q)
+
+    return querySnapshot.docs.map((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        return { id: doc.id, ...doc.data() } as Item
+    })
 }
