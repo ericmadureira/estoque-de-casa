@@ -2,6 +2,7 @@
 Sistema para controlar os itens da despensa de casa.
 
 ## Features
+- [] dar baixa nos itens consumidos
 - [] registrar por barcode usando celular
 - [] alertas de itens faltantes
 - [] gerar lista de compras com base na dispensa atual
