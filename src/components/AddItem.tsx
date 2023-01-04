@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Timestamp } from 'firebase/firestore'
 
 import { ItemCreationParams } from '../types/Item'
@@ -10,6 +10,11 @@ interface AddItemProps {
 
 const AddItem = ({ handleAddNewItem }: AddItemProps) => {
     const [isFormOpen, setIsFormOpen] = useState<boolean>(false)
+    const inputRef = useRef<HTMLInputElement>(null)
+
+    useEffect(() => {
+        isFormOpen && inputRef.current?.focus()
+    }, [isFormOpen])
 
     // State for Item form
     const [formItemName, setFormItemName] = useState<string>('')
@@ -42,7 +47,7 @@ const AddItem = ({ handleAddNewItem }: AddItemProps) => {
             }
             { isFormOpen && (
                 <div className='add-item__inputs-wrapper'>
-                    <input onChange={(e) => setFormItemName(e.target.value)} value={formItemName} type='text' placeholder='Nome' />
+                    <input onChange={(e) => setFormItemName(e.target.value)} value={formItemName} type='text' placeholder='Nome' ref={inputRef} />
                     <input onChange={(e) => setFormItemAmount(Number(e.target.value))} value={formItemAmount} type='number' placeholder='Qtde' min={0} />
                     <input onChange={(e) => setFormItemPrice(Number(e.target.value))} value={formItemPrice} type='number' placeholder='Preço (R$)' min={0} />
                     <input onChange={(e) => setFormItemcategory(e.target.value)} value={formItemcategory} type='text' placeholder='Categoria' />
