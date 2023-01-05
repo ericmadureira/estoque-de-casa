@@ -8,6 +8,7 @@ Sistema para controlar os itens da despensa de casa.
 - [] gerar lista de compras com base na dispensa atual
 - [] histórico de preços por produto
 - [] organizar produtos por categoria ou cômodo da casa
+- [] login com o google
 - [] *fazer scraping em sites de oferta
 
 Criado e mantido por Eric Madureira.
