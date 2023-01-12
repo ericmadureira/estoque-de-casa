@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
 
-import AddItem from '../components/AddItem'
-import { currencyFormatOptions, expirationDateFormatter } from '../helpers/formatting'
-import { addNewItem, getAllItems } from '../services/item-data'
-import { Item, ItemCreationParams } from '../types/Item'
+import AddItem from '../../components/AddItem'
+import { currencyFormatOptions, expirationDateFormatter } from '../../helpers/formatting'
+import { addNewItem, getAllItems } from '../../services/item-data'
+import { Item, ItemCreationParams } from '../../types/Item'
 
 import './ItemManagementPage.css'
 

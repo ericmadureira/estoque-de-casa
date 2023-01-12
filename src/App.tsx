@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
-import ItemManagementPage from './pages/ItemManagementPage'
+import ItemManagementPage from './pages/ItemManagement/ItemManagementPage'
 
 
 function App() {
