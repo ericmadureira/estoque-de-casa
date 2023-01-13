@@ -7,6 +7,7 @@ import {
 
 import Navbar from './components/Navbar'
 import ItemManagementPage from './pages/ItemManagement/ItemManagementPage'
+import ShoppingListPage from './pages/ShoppingList/ShoppingListPage'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 			<Router>
                 <Routes>
                     <Route path='/' element={<ItemManagementPage />} />
+                    <Route path='/lista' element={<ShoppingListPage />} />
                 </Routes>
             </Router>
     	</div>
