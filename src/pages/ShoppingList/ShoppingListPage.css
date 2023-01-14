@@ -3,3 +3,8 @@
     flex-direction: column;
     margin: 16px;
 }
+
+
+.shopping-list-page__inputs-wrapper {
+    margin-bottom: 8px;
+}
