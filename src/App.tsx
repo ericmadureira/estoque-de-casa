@@ -6,20 +6,23 @@ import {
 } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
+import { AuthContextProvider } from './context/AuthContext'
 import ItemManagementPage from './pages/ItemManagement/ItemManagementPage'
 import ShoppingListPage from './pages/ShoppingList/ShoppingListPage'
 
 
 function App() {
  	return (
-    	<div className="App">
-            <Navbar />
-			<Router>
-                <Routes>
-                    <Route path='/' element={<ItemManagementPage />} />
-                    <Route path='/lista' element={<ShoppingListPage />} />
-                </Routes>
-            </Router>
+    	<div className='App'>
+            <AuthContextProvider>
+                <Navbar />
+                <Router>
+                    <Routes>
+                        <Route path='/' element={<ItemManagementPage />} />
+                        <Route path='/lista' element={<ShoppingListPage />} />
+                    </Routes>
+                </Router>
+            </AuthContextProvider>
     	</div>
   	)
 }
