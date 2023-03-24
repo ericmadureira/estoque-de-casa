@@ -8,7 +8,8 @@ const mockItemList: Item[] = [
         expirationDate: { seconds: 1660060689, nanoseconds: 586000000 },
         price: 5.50,
         category: 'food',
-        weight: 400
+        weight: 400,
+        ean: '0123456789012'
     },
     {
         id: 'nuy4ujn8',
@@ -17,7 +18,8 @@ const mockItemList: Item[] = [
         expirationDate: { seconds: 1660060689, nanoseconds: 586000000 },
         price: 5.50,
         category: 'food',
-        weight: 300
+        weight: 300,
+        ean: '0123456789012'
     }
 ]
 

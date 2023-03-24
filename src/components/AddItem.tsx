@@ -23,6 +23,7 @@ const AddItem = ({ handleAddNewItem }: AddItemProps) => {
     const [formItemcategory, setFormItemcategory] = useState<string>('')
     const [formItemWeight, setFormItemWeight] = useState<number>(0)
     const [formItemExpirationDate, setFormItemExpirationDate] = useState<string>('')
+    const [formItemEAN, setFormItemEANEAN] = useState<string>('')
 
     const handleAddButtonClick = () => {
         setIsFormOpen(!isFormOpen)
@@ -33,6 +34,7 @@ const AddItem = ({ handleAddNewItem }: AddItemProps) => {
             category: formItemcategory,
             weight: formItemWeight,
             expirationDate: Timestamp.fromDate(new Date(formItemExpirationDate)),
+            ean: formItemEAN,
         })
     }
 
@@ -53,6 +55,7 @@ const AddItem = ({ handleAddNewItem }: AddItemProps) => {
                     <input onChange={(e) => setFormItemcategory(e.target.value)} value={formItemcategory} type='text' placeholder='Categoria' />
                     <input onChange={(e) => setFormItemWeight(Number(e.target.value))} value={formItemWeight} type='number' placeholder='Peso (g)' min={0} />
                     <input onChange={(e) => setFormItemExpirationDate(e.target.value)} value={formItemExpirationDate} type='datetime-local' placeholder='Validade' />
+                    <input onChange={(e) => setFormItemEANEAN(e.target.value)} value={formItemEAN} type='text' placeholder='EAN (código de barra)' />
                 </div>
             )}
         </div>

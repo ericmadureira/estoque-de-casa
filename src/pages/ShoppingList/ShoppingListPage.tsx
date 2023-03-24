@@ -16,6 +16,7 @@ const ShoppingListPage = () => {
             price: 1,
             category: 'default',
             weight: 1,
+            ean: '7891010253196',
         }])
     }
 

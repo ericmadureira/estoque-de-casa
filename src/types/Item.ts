@@ -10,6 +10,7 @@ export interface ItemCreationParams {
     price: number // R$
     category: string
     weight: number // grams
+    ean: string // unique identifier for products
 }
 
 export interface Item extends ItemCreationParams {
