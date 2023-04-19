@@ -1,4 +1,4 @@
-# Estoque de Casa 
+# Estoque de Casa
 Sistema para controlar os itens da despensa de casa.
 
 ## Features
@@ -11,4 +11,4 @@ Sistema para controlar os itens da despensa de casa.
 - [] login com google
 - [] *fazer scraping em sites de oferta
 
-Criado e mantido por Eric Madureira.
+Created and maintained by Eric Madureira.
