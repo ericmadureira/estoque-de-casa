@@ -16,3 +16,13 @@ export interface ItemCreationParams {
 export interface Item extends ItemCreationParams {
     id: string // Provided by firebase on creation
 }
+
+export interface ItemUpdateParams {
+    name?: string
+    amount?: number
+    expirationDate?: ExpirationDate
+    price?: number
+    category?: string
+    weight?: number
+    ean?: string
+}

@@ -11,24 +11,23 @@ import './ItemManagementPage.css'
 
 
 const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', flex: 1, hide: true },
-    { field: 'name', headerName: 'Nome', flex: 1 },
-    { field: 'amount', headerName: 'Quantidade', type: 'number', flex: 1 },
+    { field: 'id', headerName: 'ID', hide: true },
+    { field: 'name', headerName: 'Nome' },
+    { field: 'amount', headerName: 'Quantidade', type: 'number' },
     {
         field: 'expirationDate',
         headerName: 'Validade',
         type: 'date',
-        flex: 1,
         valueFormatter: (params) => expirationDateFormatter(params.value.seconds) },
     {
         field: 'price',
         headerName: 'Preço',
         type: 'number',
-        flex: 1,
         valueFormatter: (params) => params.value.toLocaleString('pt-BR', currencyFormatOptions)
     },
-    { field: 'category', headerName: 'Categoria', flex: 1 },
-    { field: 'weight', headerName: 'Peso (g | ml)', type: 'number', flex: 1 },
+    { field: 'category', headerName: 'Categoria' },
+    { field: 'weight', headerName: 'Peso (g | ml)', type: 'number' },
+    { field: 'edit', headerName: 'Editar', renderCell: (params) => <button>EDITAR</button> },
 ]
 
 const ItemManagementPage = () => {

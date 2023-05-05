@@ -1,7 +1,7 @@
-import { addDoc, collection, getDocs, query } from 'firebase/firestore'
+import { addDoc, collection, doc, getDocs, query, updateDoc } from 'firebase/firestore'
 
 import { firebaseApp } from '../firebase'
-import { Item, ItemCreationParams } from '../types/Item'
+import { Item, ItemCreationParams, ItemUpdateParams } from '../types/Item'
 
 // Adds item to db/firebase.
 export const addNewItem = async (itemCreationParams: ItemCreationParams) => {
@@ -11,6 +11,13 @@ export const addNewItem = async (itemCreationParams: ItemCreationParams) => {
         console.log('ERROR - Add New Item: ', err)
     }
 }
+
+export const updateItem = async (updateParams: ItemUpdateParams) => {
+    try {
+        const productCollectionRef = doc(firebaseApp, 'products', 'DOC ID');
+        await updateDoc(productCollectionRef, { ...updateParams });
+    } catch (err) {
+        console.log('ERROR - Update Item: ', err)
     }
 }
 
