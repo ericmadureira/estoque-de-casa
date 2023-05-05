@@ -8,7 +8,9 @@ export const addNewItem = async (itemCreationParams: ItemCreationParams) => {
     try {
         await addDoc(collection(firebaseApp, 'products'), { ...itemCreationParams })
     } catch (err) {
-        console.log('Error during fetch: ', err)
+        console.log('ERROR - Add New Item: ', err)
+    }
+}
     }
 }
 
