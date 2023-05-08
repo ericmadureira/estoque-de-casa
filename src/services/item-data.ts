@@ -14,7 +14,7 @@ export const addNewItem = async (itemCreationParams: ItemCreationParams) => {
 
 export const updateItem = async (updateParams: ItemUpdateParams) => {
     try {
-        const productCollectionRef = doc(firebaseApp, 'products', 'DOC ID');
+        const productCollectionRef = doc(firebaseApp, 'products', updateParams.id);
         await updateDoc(productCollectionRef, { ...updateParams });
     } catch (err) {
         console.log('ERROR - Update Item: ', err)

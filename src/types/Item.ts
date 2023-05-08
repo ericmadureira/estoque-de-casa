@@ -4,8 +4,8 @@ export interface ExpirationDate {
 }
 
 export interface ItemCreationParams {
-    name: string
     amount: number
+    name: string
     expirationDate: ExpirationDate
     price: number // R$
     category: string
@@ -18,8 +18,9 @@ export interface Item extends ItemCreationParams {
 }
 
 export interface ItemUpdateParams {
-    name?: string
+    id: string
     amount?: number
+    name?: string
     expirationDate?: ExpirationDate
     price?: number
     category?: string

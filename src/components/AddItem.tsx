@@ -28,8 +28,8 @@ const AddItem = ({ handleAddNewItem }: AddItemProps) => {
     const handleAddButtonClick = () => {
         setIsFormOpen(!isFormOpen)
         handleAddNewItem({
-            name: formItemName,
             amount: formItemAmount,
+            name: formItemName,
             price: formItemPrice,
             category: formItemcategory,
             weight: formItemWeight,
@@ -49,8 +49,8 @@ const AddItem = ({ handleAddNewItem }: AddItemProps) => {
             }
             { isFormOpen && (
                 <div className='add-item__inputs-wrapper'>
-                    <input onChange={(e) => setFormItemName(e.target.value)} value={formItemName} type='text' placeholder='Nome' ref={inputRef} />
                     <input onChange={(e) => setFormItemAmount(Number(e.target.value))} value={formItemAmount} type='number' placeholder='Qtde' min={0} />
+                    <input onChange={(e) => setFormItemName(e.target.value)} value={formItemName} type='text' placeholder='Nome' ref={inputRef} />
                     <input onChange={(e) => setFormItemPrice(Number(e.target.value))} value={formItemPrice} type='number' placeholder='Preço (R$)' min={0} />
                     <input onChange={(e) => setFormItemcategory(e.target.value)} value={formItemcategory} type='text' placeholder='Categoria' />
                     <input onChange={(e) => setFormItemWeight(Number(e.target.value))} value={formItemWeight} type='number' placeholder='Peso (g)' min={0} />
