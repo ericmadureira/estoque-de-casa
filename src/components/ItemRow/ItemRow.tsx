@@ -15,7 +15,7 @@ enum ViewMode {
 }
 
 const ItemRow = ({ item }: ItemRowProps) => {
-    const { id, amount, name, expirationDate, price, weight, ean } = item
+    const { id, amount, name, expirationDate, price, category, weight, ean } = item
 
     const handleClickEdit = () => setViewMode(ViewMode.Edit)
     const handleClickSave = async () => {
@@ -37,7 +37,7 @@ const ItemRow = ({ item }: ItemRowProps) => {
     const [editFormItemName, setEditFormItemName] = useState<string>(name)
     const [editFormItemExpirationDate, setEditFormItemExpirationDate] = useState<string>(serializeDate(expirationDate.seconds))
     const [editFormItemPrice, setEditFormItemPrice] = useState<number>(price)
-    const [editFormItemcategory, setEditFormItemcategory] = useState<string>('')
+    const [editFormItemcategory, setEditFormItemcategory] = useState<string>(category)
     const [editFormItemWeight, setEditFormItemWeight] = useState<number>(weight)
     const [editFormItemEAN, setEditFormItemEAN] = useState<string>(ean)
 
@@ -50,6 +50,7 @@ const ItemRow = ({ item }: ItemRowProps) => {
                     <span>{name}</span>
                     <span>Val.: {serializeDate(expirationDate.seconds)}</span>
                     <span>{price.toLocaleString('pt-BR', currencyFormatOptions)}</span>
+                    <span>{category}</span>
                     <span>{weight} g</span>
                     <span>{ean}</span>
                     <button onClick={handleClickEdit}><i className='fa-solid fa-pen-to-square' /></button>

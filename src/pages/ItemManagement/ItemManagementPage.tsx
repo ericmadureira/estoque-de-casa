@@ -46,6 +46,7 @@ const ItemManagementPage = () => {
                 <span>Nome</span>
                 <span>Validade</span>
                 <span>Preço</span>
+                <span>Categoria</span>
                 <span>Peso</span>
                 <span>EAN</span>
                 <span>Ações</span>
