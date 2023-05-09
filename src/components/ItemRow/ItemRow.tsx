@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-import { currencyFormatOptions, expirationDateFormatter } from '../../helpers/formatting'
+import { currencyFormatOptions, deserializeDate, serializeDate } from '../../helpers/formatting'
+import { updateItem } from '../../services/item-data'
 import { Item } from '../../types/Item'
 
 import './ItemRow.css'
@@ -10,20 +11,19 @@ interface ItemRowProps {
 }
 enum ViewMode {
     View = 'view',
-    Edit = 'edit'
+    Edit = 'edit',
 }
 
 const ItemRow = ({ item }: ItemRowProps) => {
     const { amount, name, expirationDate, price, weight, ean } = item
 
-    const handleClickEdit = () => {
-        setViewMode((viewMode === ViewMode.View) ? ViewMode.Edit : ViewMode.View)
+    const handleClickEdit = () => setViewMode(ViewMode.Edit)
     }
 
     const [viewMode, setViewMode] = useState(ViewMode.View)
     const [editFormItemAmount, setEditFormItemAmount] = useState<number>(amount)
     const [editFormItemName, setEditFormItemName] = useState<string>(name)
-    const [editFormItemExpirationDate, setEditFormItemExpirationDate] = useState<string>(expirationDateFormatter(expirationDate.seconds))
+    const [editFormItemExpirationDate, setEditFormItemExpirationDate] = useState<string>(serializeDate(expirationDate.seconds))
     const [editFormItemPrice, setEditFormItemPrice] = useState<number>(price)
     // const [editFormItemcategory, setEditFormItemcategory] = useState<string>('')
     const [editFormItemWeight, setEditFormItemWeight] = useState<number>(weight)
@@ -36,7 +36,7 @@ const ItemRow = ({ item }: ItemRowProps) => {
                 <>
                     <span className='item-row__amount'>{amount}</span>
                     <b>{name}</b>
-                    <span>Val.: {expirationDateFormatter(expirationDate.seconds)}</span>
+                    <span>Val.: {serializeDate(expirationDate.seconds)}</span>
                     <span>{price.toLocaleString('pt-BR', currencyFormatOptions)}</span>
                     <span>{weight} g</span>
                     <span>{ean}</span>
