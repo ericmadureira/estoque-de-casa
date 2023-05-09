@@ -57,12 +57,12 @@ const ItemRow = ({ item }: ItemRowProps) => {
                 </> :
                 // Edit mode
                 <>
-                    <input onChange={(e) => setEditFormItemAmount(Number(e.target.value))} value={editFormItemAmount} type='number' min={0} />
+                    <input onChange={(e) => setEditFormItemAmount(Number(e.target.value))} value={editFormItemAmount} type='text' />
                     <input onChange={(e) => setEditFormItemName(e.target.value)} value={editFormItemName} type='text' />
                     <input onChange={(e) => setEditFormItemExpirationDate(e.target.value)} value={editFormItemExpirationDate} type='datetime-local' />
-                    <input onChange={(e) => setEditFormItemPrice(Number(e.target.value))} value={editFormItemPrice} type='number' min={0} />
+                    <input onChange={(e) => setEditFormItemPrice(Number(e.target.value))} value={editFormItemPrice} type='text' />
                     <input onChange={(e) => setEditFormItemcategory(e.target.value)} value={editFormItemcategory} type='text' />
-                    <input onChange={(e) => setEditFormItemWeight(Number(e.target.value))} value={editFormItemWeight} type='number' min={0} />
+                    <input onChange={(e) => setEditFormItemWeight(Number(e.target.value))} value={editFormItemWeight} type='text' />
                     <input onChange={(e) => setEditFormItemEAN(e.target.value)} value={editFormItemEAN} type='text' />
                     <button onClick={handleClickSave}>Save</button>
                 </>
