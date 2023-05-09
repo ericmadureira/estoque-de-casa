@@ -41,6 +41,9 @@ const ItemRow = ({ item }: ItemRowProps) => {
     const [editFormItemWeight, setEditFormItemWeight] = useState<number>(weight)
     const [editFormItemEAN, setEditFormItemEAN] = useState<string>(ean)
 
+    const formattedPrice = price.toLocaleString('pt-BR', currencyFormatOptions)
+    const formattedExpirationDate = serializeDate(expirationDate.seconds)
+
     return (
         <div className='item-row__wrapper'>
             { (viewMode === ViewMode.View) ?
@@ -48,8 +51,8 @@ const ItemRow = ({ item }: ItemRowProps) => {
                 <>
                     <span className='item-row__amount'>{amount}</span>
                     <span>{name}</span>
-                    <span>Val.: {serializeDate(expirationDate.seconds)}</span>
-                    <span>{price.toLocaleString('pt-BR', currencyFormatOptions)}</span>
+                    <span>Val.: {formattedExpirationDate}</span>
+                    <span>{formattedPrice}</span>
                     <span>{category}</span>
                     <span>{weight} g</span>
                     <span>{ean}</span>
