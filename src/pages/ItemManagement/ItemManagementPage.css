@@ -16,3 +16,11 @@
     padding: 8px;
     width: 100%;
 }
+
+.list-header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 8px;
+    width: 100%;
+}

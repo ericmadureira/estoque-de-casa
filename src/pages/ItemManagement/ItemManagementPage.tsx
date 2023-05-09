@@ -41,6 +41,15 @@ const ItemManagementPage = () => {
                     placeholder='Filtrar...'
                 />
             </div>
+            <div className='list-header'>
+                <span>Quant.</span>
+                <span>Nome</span>
+                <span>Validade</span>
+                <span>Preço</span>
+                <span>Peso</span>
+                <span>EAN</span>
+                <span>Ações</span>
+            </div>
             <div style={{ height: 400, width: '100%' }}>
                 {
                     itemList.filter((item: Item) => item.name.toLowerCase().includes(searchInput)).map(item => {
