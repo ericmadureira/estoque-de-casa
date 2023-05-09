@@ -15,9 +15,21 @@ enum ViewMode {
 }
 
 const ItemRow = ({ item }: ItemRowProps) => {
-    const { amount, name, expirationDate, price, weight, ean } = item
+    const { id, amount, name, expirationDate, price, weight, ean } = item
 
     const handleClickEdit = () => setViewMode(ViewMode.Edit)
+    const handleClickSave = async () => {
+        await updateItem({
+            id,
+            amount: editFormItemAmount,
+            name: editFormItemName,
+            expirationDate: deserializeDate(editFormItemExpirationDate),
+            price: editFormItemPrice,
+            category: editFormItemcategory,
+            weight: editFormItemWeight,
+            ean: editFormItemEAN,
+        })
+        setViewMode(ViewMode.View)
     }
 
     const [viewMode, setViewMode] = useState(ViewMode.View)
@@ -25,7 +37,7 @@ const ItemRow = ({ item }: ItemRowProps) => {
     const [editFormItemName, setEditFormItemName] = useState<string>(name)
     const [editFormItemExpirationDate, setEditFormItemExpirationDate] = useState<string>(serializeDate(expirationDate.seconds))
     const [editFormItemPrice, setEditFormItemPrice] = useState<number>(price)
-    // const [editFormItemcategory, setEditFormItemcategory] = useState<string>('')
+    const [editFormItemcategory, setEditFormItemcategory] = useState<string>('')
     const [editFormItemWeight, setEditFormItemWeight] = useState<number>(weight)
     const [editFormItemEAN, setEditFormItemEAN] = useState<string>(ean)
 
@@ -35,7 +47,7 @@ const ItemRow = ({ item }: ItemRowProps) => {
                 // View mode
                 <>
                     <span className='item-row__amount'>{amount}</span>
-                    <b>{name}</b>
+                    <span>{name}</span>
                     <span>Val.: {serializeDate(expirationDate.seconds)}</span>
                     <span>{price.toLocaleString('pt-BR', currencyFormatOptions)}</span>
                     <span>{weight} g</span>
@@ -48,10 +60,10 @@ const ItemRow = ({ item }: ItemRowProps) => {
                     <input onChange={(e) => setEditFormItemName(e.target.value)} value={editFormItemName} type='text' />
                     <input onChange={(e) => setEditFormItemExpirationDate(e.target.value)} value={editFormItemExpirationDate} type='datetime-local' />
                     <input onChange={(e) => setEditFormItemPrice(Number(e.target.value))} value={editFormItemPrice} type='number' min={0} />
-                    {/* <input onChange={(e) => setFormItemcategory(e.target.value)} value={formItemcategory} type='text' /> */}
+                    <input onChange={(e) => setEditFormItemcategory(e.target.value)} value={editFormItemcategory} type='text' />
                     <input onChange={(e) => setEditFormItemWeight(Number(e.target.value))} value={editFormItemWeight} type='number' min={0} />
                     <input onChange={(e) => setEditFormItemEAN(e.target.value)} value={editFormItemEAN} type='text' />
-                    <button onClick={handleClickEdit}>SAVE</button>
+                    <button onClick={handleClickSave}>Save</button>
                 </>
             }
         </div>
