@@ -26,7 +26,6 @@ export const getAllItems = async () => {
     const querySnapshot = await getDocs(q)
 
     return querySnapshot.docs.map((doc) => {
-        // doc.data() is never undefined for query doc snapshots
         return { id: doc.id, ...doc.data() } as Item
     })
 }
