@@ -59,7 +59,10 @@ const ItemRow = ({ item }: ItemRowProps) => {
                     <span>{category}</span>
                     <span>{weight} g</span>
                     <span>{ean}</span>
-                    <button onClick={handleClickEdit}><i className='fa-solid fa-pen-to-square' /></button>
+                    <div>
+                        <button onClick={handleClickEdit}><i className='fa-solid fa-pen-to-square' /></button>
+                        <button><i className='fa-solid fa-trash' /></button>
+                    </div>
                 </> :
                 // Edit mode
                 <>
