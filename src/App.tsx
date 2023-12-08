@@ -10,7 +10,7 @@ import ItemManagementPage from './pages/ItemManagement/ItemManagementPage'
 import ShoppingListPage from './pages/ShoppingList/ShoppingListPage'
 
 
-function App() {
+function App(): JSX.Element {
  	return (
     	<div className='App'>
             <Navbar />
