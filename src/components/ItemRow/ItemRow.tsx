@@ -15,23 +15,10 @@ enum ViewMode {
 }
 
 const ItemRow = ({ item }: ItemRowProps) => {
+    // Props
     const { id, amount, name, expirationDate, price, category, weight, ean } = item
 
-    const handleClickEdit = () => setViewMode(ViewMode.Edit)
-    const handleClickSave = async () => {
-        await updateItem({
-            id,
-            amount: editFormItemAmount,
-            name: editFormItemName,
-            expirationDate: deserializeDate(editFormItemExpirationDate),
-            price: editFormItemPrice,
-            category: editFormItemcategory,
-            weight: editFormItemWeight,
-            ean: editFormItemEAN,
-        })
-        setViewMode(ViewMode.View)
-    }
-
+    // State
     const [viewMode, setViewMode] = useState(ViewMode.View)
     const [editFormItemAmount, setEditFormItemAmount] = useState<number>(amount)
     const [editFormItemName, setEditFormItemName] = useState<string>(name)
@@ -47,6 +34,24 @@ const ItemRow = ({ item }: ItemRowProps) => {
     const formattedPrice = price.toLocaleString('pt-BR', currencyFormatOptions)
     const formattedExpirationDate = serializeDate(expirationDate.seconds).toLocaleDateString('pt-BR')
 
+    // Methods
+    const handleClickEdit = () => setViewMode(ViewMode.Edit)
+    const handleClickCancel = () => setViewMode(ViewMode.View)
+    const handleClickSave = async () => {
+        await updateItem({
+            id,
+            amount: editFormItemAmount,
+            name: editFormItemName,
+            expirationDate: deserializeDate(editFormItemExpirationDate),
+            price: editFormItemPrice,
+            category: editFormItemcategory,
+            weight: editFormItemWeight,
+            ean: editFormItemEAN,
+        })
+        setViewMode(ViewMode.View)
+    }
+
+    // Render
     return (
         <div className='item-row__wrapper'>
             { (viewMode === ViewMode.View) ?
@@ -73,7 +78,10 @@ const ItemRow = ({ item }: ItemRowProps) => {
                     <input onChange={(e) => setEditFormItemcategory(e.target.value)} value={editFormItemcategory} type='text' />
                     <input onChange={(e) => setEditFormItemWeight(Number(e.target.value))} value={editFormItemWeight} type='text' />
                     <input onChange={(e) => setEditFormItemEAN(e.target.value)} value={editFormItemEAN} type='text' />
-                    <button onClick={handleClickSave}>Save</button>
+                    <div>
+                        <button onClick={handleClickSave}>Save</button>
+                        <button onClick={handleClickCancel}>Cancel</button>
+                    </div>
                 </>
             }
         </div>

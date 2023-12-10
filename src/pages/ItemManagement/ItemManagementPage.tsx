@@ -25,7 +25,7 @@ const ItemManagementPage = () => {
     }
 
     useEffect(() => {
-        // Fetches all items from db/direbase.
+        // Fetches all items from db/firebase.
         getAllItems().then(items => setItemList(items))
     }, [])
 
