@@ -2,14 +2,28 @@
 Sistema para controlar os itens da despensa da sua casa.
 
 ## Funcionalidades / Features
-- dar baixa nos itens consumidos
-- registrar por barcode usando celular
-- alertas de itens faltantes
-- gerar lista de compras com base na dispensa atual
-- histórico de preços por produto
-- organizar produtos por categoria ou cômodo da casa
-- login com google
-- *fazer scraping em sites de oferta
+- Lista do estoque atual
+  - Agrupamentos e filtros pre-definidos
+    - agrupado por cômodo, validade próxima, estoque acabando, categoria
+    - Dar baixa nos itens consumidos
+    - Alerta de item faltante na linha
+- Registrar novas compras e dar baixa
+  - Adicionar item manualmente ou usar código de barras com câmera do celular
+  - Editar item manualmente
+  - Opção de marcar item como recorrente em toda compra
+  - Botão rápido para dar baixa (setar valor pra zero)
+- Lista de compras automática
+  - Gerar lista de compras com base na dispensa atual (cron job ou apertar botão)
+  - Lembrete perto de datas especiais como aniversários, são joão, natal, etc
+  - Incluir itens recorrentes
+  - Marcar item como opcional se o preço estiver bom (R$)
+- Histórico de preços por produto
+- Login com google
+- Extras
+  - Comandos por voz
+  - Dar baixa escaneando a nota fiscal
+  - Fazer scraping em sites de oferta
+  - Buscar mercados perto de mim
 
 
 ## Como rodar / How to run
