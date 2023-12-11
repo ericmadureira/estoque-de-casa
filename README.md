@@ -2,29 +2,27 @@
 Sistema para controlar os itens da despensa da sua casa.
 
 ## Funcionalidades / Features
-- Lista do estoque atual
-  - Agrupamentos e filtros pre-definidos
-    - agrupado por cômodo, validade próxima, estoque acabando, categoria
-    - Dar baixa nos itens consumidos
-    - Alerta de item faltante na linha
-- Registrar novas compras e dar baixa
+- (TELA) Lista do estoque atual
+  - Botões rápidos de filtro e agrupamento: por categoria, validade próxima, estoque acabando, etc.
+  - Botão rápido para dar baixa (mudar quantidade para -1, zerar, +1)
+  - Alerta de item faltante na linha
+- (MODAL) Registrar novas compras por código de barra
   - Adicionar item manualmente ou usar código de barras com câmera do celular
   - Editar item manualmente
   - Opção de marcar item como recorrente em toda compra
   - Botão rápido para dar baixa (setar valor pra zero)
-- Lista de compras automática
+- (TELA) Lista de compras automática
   - Gerar lista de compras com base na dispensa atual (cron job ou apertar botão)
   - Lembrete perto de datas especiais como aniversários, são joão, natal, etc
   - Incluir itens recorrentes
   - Marcar item como opcional se o preço estiver bom (R$)
-- Histórico de preços por produto
-- Login com google
 - Extras
+  - Login com google
+  - Procurar mercados perto de mim
   - Comandos por voz
+  - Histórico de preços por produto
   - Dar baixa escaneando a nota fiscal
   - Fazer scraping em sites de oferta
-  - Buscar mercados perto de mim
-
 
 ## Como rodar / How to run
 1. Abra um terminal e siga até a pasta do projeto
