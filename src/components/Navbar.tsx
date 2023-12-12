@@ -1,33 +1,16 @@
 import React from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import IconButton from '@mui/material/IconButton'
-import MenuIcon from '@mui/icons-material/Menu'
 
 const Navbar = () => {
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position='static'>
-                <Toolbar>
-                <IconButton
-                    size='large'
-                    edge='start'
-                    color='inherit'
-                    aria-label='menu'
-                    sx={{ mr: 2 }}
-                >
-                    <MenuIcon />
-                </IconButton>
-                <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-                    Estoque de Casa
-                </Typography>
-                <Button color='inherit'>Login</Button>
-                </Toolbar>
-            </AppBar>
-        </Box>
+        <div className='container'
+            style={{
+                display: 'flex', backgroundColor: '#1095C1',
+                justifyContent: 'space-between', alignItems: 'center',
+                color: 'white', padding: 16, marginBottom: 16
+        }}>
+            <span style={{ fontWeight: 'bold' }}>Estoque de Casa</span>
+            <i className='fa-regular fa-circle-user fa-2x' />
+        </div>
     )
 }
 
