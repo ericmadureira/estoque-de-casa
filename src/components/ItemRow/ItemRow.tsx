@@ -57,16 +57,14 @@ const ItemRow = ({ item }: ItemRowProps) => {
             { (viewMode === ViewMode.View) ?
                 // View mode
                 <>
-                    <span className='item-row__amount'>{amount}</span>
-                    <span>{name}</span>
-                    <span>Val.: {formattedExpirationDate}</span>
-                    <span>{formattedPrice}</span>
-                    <span>{category}</span>
-                    <span>{weight} g</span>
-                    <span>{ean}</span>
-                    <div>
-                        <button onClick={handleClickEdit}><i className='fa-solid fa-pen-to-square' /></button>
-                        <button><i className='fa-solid fa-trash' /></button>
+                    <span style={{ width: 55, marginRight: 16, textAlign: 'left' }}>{amount} un.</span>
+                    <span style={{ display: 'flex', textWrap: 'wrap', textAlign: 'left', flexGrow: 4 }}>{name}</span>
+                    {/* TO-DO: Tornar a unidade dinâmica */}
+                    {/* <span>{weight} g</span> */}
+                    <div style={{ display: 'flex' }}>
+                        {/* TO-DO: adicionar tooltip aos botões */}
+                        <button style={{ marginRight: '4px' }} className='item-action-button' onClick={handleClickEdit}><i className='fa-solid fa-pen-to-square' /></button>
+                        <button className='item-action-button'><i className='fa-regular fa-circle-xmark' /></button>
                     </div>
                 </> :
                 // Edit mode
@@ -79,8 +77,8 @@ const ItemRow = ({ item }: ItemRowProps) => {
                     <input onChange={(e) => setEditFormItemWeight(Number(e.target.value))} value={editFormItemWeight} type='text' />
                     <input onChange={(e) => setEditFormItemEAN(e.target.value)} value={editFormItemEAN} type='text' />
                     <div>
-                        <button onClick={handleClickSave}>Save</button>
-                        <button onClick={handleClickCancel}>Cancel</button>
+                        <button onClick={handleClickSave}>Salvar</button>
+                        <button onClick={handleClickCancel}>Cancelar</button>
                     </div>
                 </>
             }

@@ -4,7 +4,7 @@ Sistema para controlar os itens da despensa da sua casa.
 ## Funcionalidades / Features
 - (TELA) Lista do estoque atual
   - Botões rápidos de filtro e agrupamento: por categoria, validade próxima, estoque acabando, etc.
-  - Botão rápido para dar baixa (mudar quantidade para -1, zerar, +1)
+  - Botões de edição e dar baixa (zerar quantidade)
   - Alerta de item faltante na linha
 - (MODAL) Registrar novas compras por código de barra
   - Adicionar item manualmente ou usar código de barras com câmera do celular

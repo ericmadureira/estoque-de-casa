@@ -20,7 +20,12 @@
 .list-header {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: start;
     margin-top: 8px;
     width: 100%;
+}
+
+.list-header span {
+    font-weight: bold;
+    text-align: left;
 }

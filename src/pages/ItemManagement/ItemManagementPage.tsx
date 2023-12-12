@@ -42,14 +42,10 @@ const ItemManagementPage = () => {
                 />
             </div>
             <div className='list-header'>
-                <span>Quant.</span>
-                <span>Nome</span>
-                <span>Validade</span>
-                <span>Preço</span>
-                <span>Categoria</span>
-                <span>Peso</span>
-                <span>EAN</span>
-                <span>Ações</span>
+                <span style={{ width: 55, marginRight: 16 }}>Quant.</span>
+                <span style={{ flexGrow: 4 }}>Nome</span>
+                {/* <span>Peso</span> */}
+                <span></span>
             </div>
             <div style={{ height: 400, width: '100%' }}>
                 {
