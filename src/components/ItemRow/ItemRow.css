@@ -1,8 +1,8 @@
 .item-row__wrapper {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: start;
-    margin-top: 8px;
+    justify-content: flex-start;
+    margin-top: 0;
     width: 100%;
 }
 

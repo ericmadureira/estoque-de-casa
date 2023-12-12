@@ -6,6 +6,7 @@ Sistema para controlar os itens da despensa da sua casa.
   - Botões rápidos de filtro e agrupamento: por categoria, validade próxima, estoque acabando, etc.
   - Botões de edição e dar baixa (zerar quantidade)
   - Alerta de item faltante na linha
+  - Tooltip com foto do produto ao passar o mouse
 - (MODAL) Registrar novas compras por código de barra
   - Adicionar item manualmente ou usar código de barras com câmera do celular
   - Editar item manualmente
