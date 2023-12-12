@@ -36,21 +36,20 @@ const ItemManagementPage = () => {
     }, [])
 
     return (
-        <div className='item-mgmt-page__page-wrapper'>
-            <AddItem handleAddNewItem={handleAddNewItem} />
-            <div className='item-mgmt-page__search-wrapper'>
+        <div className='container'>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <AddItem handleAddNewItem={handleAddNewItem} />
                 <input
-                    className='item-mgmt-page__search-input'
                     type="text"
                     value={searchInput}
                     onChange={handleSearchInputChange}
                     placeholder='Filtrar...'
+                    style={{ marginBottom: 0 }}
                 />
             </div>
             <div className='list-header'>
                 <span style={{ width: 55, marginRight: 16 }}>Quant.</span>
                 <span style={{ flexGrow: 4 }}>Nome</span>
-                <span></span>
             </div>
             <div style={{ width: '100%' }}>
                 {

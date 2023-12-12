@@ -1,9 +1,3 @@
-.item-mgmt-page__page-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin: 16px;
-}
-
 .item-mgmt-page__list-wrapper {
     display: flex;
     flex-wrap: wrap;

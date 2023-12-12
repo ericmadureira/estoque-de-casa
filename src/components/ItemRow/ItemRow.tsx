@@ -28,7 +28,7 @@ const ItemRow = ({ item, setIsEditModalOpen, setSelectedItem }: ItemRowProps) =>
             {/* <span>{weight} g</span> */}
             <div style={{ display: 'flex' }}>
                 {/* TO-DO: adicionar tooltip aos botões */}
-                <button style={{ marginRight: '4px' }} className='item-action-button' onClick={handleClickEdit}><i className='fa-solid fa-pen-to-square' /></button>
+                <button style={{ marginRight: 8 }} className='item-action-button' onClick={handleClickEdit}><i className='fa-solid fa-pen-to-square' /></button>
                 <button className='item-action-button'><i className='fa-regular fa-circle-xmark' /></button>
             </div>
         </div>
