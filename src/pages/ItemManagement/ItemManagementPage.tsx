@@ -65,11 +65,12 @@ const ItemManagementPage = () => {
                     })
                 }
             </div>
-            <ItemEditModal
-                isEditModalOpen={isEditModalOpen}
-                selectedItem={selectedItem}
-                setIsEditModalOpen={setIsEditModalOpen}
-            />
+            { isEditModalOpen &&
+                <ItemEditModal
+                    selectedItem={selectedItem}
+                    setIsEditModalOpen={setIsEditModalOpen}
+                />
+            }
         </div>
     )
 }

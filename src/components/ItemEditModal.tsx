@@ -3,12 +3,6 @@ import { deserializeDate, serializeDate } from '../helpers/formatting'
 import { Item } from '../types/Item'
 import { updateItem } from '../services/item-data'
 
-interface ItemEditModalProps {
-  isEditModalOpen: boolean
-  selectedItem: Item
-  setIsEditModalOpen: React.Dispatch<React.SetStateAction<boolean>>
-}
-
 interface ModalInputProps {
   label: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -23,37 +17,36 @@ const ModalInput = ({ label, onChange, value }: ModalInputProps) => {
   )
 }
 
-const ItemEditModal = ({ isEditModalOpen, selectedItem, setIsEditModalOpen }: ItemEditModalProps): JSX.Element => {
-  // Props
-  const {
-    id, amount: currentAmount, name: currentName,
-    expirationDate: currentExpirationDate, price: currentPrice,
-    category: currentCategory, weight: currentWeight, ean: currentEAN } = selectedItem
+interface ItemEditModalProps {
+  selectedItem: Item
+  setIsEditModalOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+const ItemEditModal = ({ selectedItem, setIsEditModalOpen }: ItemEditModalProps): JSX.Element => {
 
   // State
-  const [amount, setAmount] = useState<number>(currentAmount)
-  const [name, setName] = useState<string>(currentName)
+  const [amount, setAmount] = useState<number>(selectedItem.amount)
+  const [name, setName] = useState<string>(selectedItem.name)
   const [expirationDate, setExpirationDate] = useState<string>(
-    serializeDate(currentExpirationDate.seconds).toLocaleDateString('en-US'))
-  const [price, setPrice] = useState<number>(currentPrice)
-  const [category, setCategory] = useState<string>(currentCategory)
-  const [weight, setWeight] = useState<number>(currentWeight)
-  const [EAN, setEAN] = useState<string>(currentEAN)
+    serializeDate(selectedItem.expirationDate.seconds).toLocaleDateString('en-US'))
+  const [price, setPrice] = useState<number>(selectedItem.price)
+  const [category, setCategory] = useState<string>(selectedItem.category)
+  const [weight, setWeight] = useState<number>(selectedItem.weight)
+  const [EAN, setEAN] = useState<string>(selectedItem.ean)
 
   // Methods
   const handleClickCancel = () => setIsEditModalOpen(false)
   const handleClickSave = async () => {
-    await updateItem({ id, amount: amount, name: name, expirationDate: deserializeDate(expirationDate),
+    await updateItem({ id: selectedItem.id, amount, name: name, expirationDate: deserializeDate(expirationDate),
       price: price, category: category, weight: weight, ean: EAN })
     setIsEditModalOpen(false)
   }
 
   return (
-    <dialog open={isEditModalOpen}>
+    <dialog open>
       <article>
         <header style={{ marginBottom: 16}}>
           <a href="#close" aria-label="Close" className="close" onClick={handleClickCancel}></a>
-          <span>Editando </span><b>{currentName}</b>
+          <span>Editando </span><b>{selectedItem.name}</b>
         </header>
 
         {/* Inputs */}

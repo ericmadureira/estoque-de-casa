@@ -16,16 +16,14 @@ const ItemRow = ({ item, setIsEditModalOpen, setSelectedItem }: ItemRowProps) =>
 
     // Methods
     const handleClickEdit = () => {
-        setIsEditModalOpen(true)
         setSelectedItem(item)
+        setIsEditModalOpen(true)
     }
 
     return (
         <div className='item-row__wrapper'>
             <span style={{ width: 55, marginRight: 16, textAlign: 'left' }}>{amount} un.</span>
             <span style={{ display: 'flex', textWrap: 'wrap', textAlign: 'left', flexGrow: 4 }}>{name}</span>
-            {/* TO-DO: Tornar a unidade dinâmica */}
-            {/* <span>{weight} g</span> */}
             <div style={{ display: 'flex' }}>
                 {/* TO-DO: adicionar tooltip aos botões */}
                 <button style={{ marginRight: 8 }} className='item-action-button' onClick={handleClickEdit}><i className='fa-solid fa-pen-to-square' /></button>
