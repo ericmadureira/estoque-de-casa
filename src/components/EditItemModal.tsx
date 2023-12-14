@@ -1,28 +1,15 @@
 import React, { useState } from 'react'
+
 import { deserializeDate, serializeDate } from '../helpers/formatting'
-import { Item } from '../types/Item'
+import ModalInput from './ModalInput'
 import { updateItem } from '../services/item-data'
+import { Item } from '../types/Item'
 
-interface ModalInputProps {
-  label: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  value: string | number
-}
-const ModalInput = ({ label, onChange, value }: ModalInputProps) => {
-  return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-      <span>{label}: </span>
-      <input onChange={onChange} style={{ margin: '0 0 0 16px', width: 215 }} type='text' value={value} />
-    </div>
-  )
-}
-
-interface ItemEditModalProps {
+interface EditItemModalProps {
   selectedItem: Item
   setIsEditModalOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
-const ItemEditModal = ({ selectedItem, setIsEditModalOpen }: ItemEditModalProps): JSX.Element => {
-
+const EditItemModal = ({ selectedItem, setIsEditModalOpen }: EditItemModalProps): JSX.Element => {
   // State
   const [amount, setAmount] = useState<number>(selectedItem.amount)
   const [name, setName] = useState<string>(selectedItem.name)
@@ -52,11 +39,15 @@ const ItemEditModal = ({ selectedItem, setIsEditModalOpen }: ItemEditModalProps)
         {/* Inputs */}
         <ModalInput label='Quant.' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAmount(Number(e.target.value)) }} value={amount} />
         <ModalInput label='Nome' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }} value={name} />
-        <ModalInput label='Validade' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setExpirationDate(e.target.value) }} value={expirationDate} />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+          <span>Validade: </span>
+          <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setExpirationDate(e.target.value) }} style={{ margin: '0 0 0 16px', width: 215 }} type='date' value={expirationDate} />
+        </div>
         <ModalInput label='Preço' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setPrice(Number(e.target.value)) }} value={price} />
         <ModalInput label='Categoria' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCategory(e.target.value) }} value={category} />
         <ModalInput label='Peso' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setWeight(Number(e.target.value)) }} value={weight} />
         <ModalInput label='EAN' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setEAN(e.target.value) }} value={EAN} />
+
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <button style={{ width: '50%', marginRight: 16 }} onClick={handleClickSave}>Salvar</button>
           <button style={{ width: '50%', backgroundColor: '#FF6A74' }} onClick={handleClickCancel}>Cancelar</button>
@@ -66,4 +57,4 @@ const ItemEditModal = ({ selectedItem, setIsEditModalOpen }: ItemEditModalProps)
   )
 }
 
-export default ItemEditModal
+export default EditItemModal
