@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import AddItemModal from '../../components/AddItemModal'
 import EditItemModal from '../../components/EditItemModal'
 import ItemRow from '../../components/ItemRow/ItemRow'
-import { addNewItem, getAllItems } from '../../services/item-data'
-import { Item, ItemCreationParams } from '../../types/Item'
+import { addNewItem, getAllItems, updateItem } from '../../services/item-data'
+import { Item, ItemCreationParams, ItemUpdateParams } from '../../types/Item'
 
 import './ItemManagementPage.css'
 
@@ -24,7 +24,13 @@ const ItemManagementPage = () => {
     // Methods
     const handleAddNewItem = async (itemCreationParams: ItemCreationParams) => {
         await addNewItem(itemCreationParams)
-        navigate('/')
+        // setIsAddModalOpen(false)
+        refreshItemList()
+    }
+    const handleUpdateItem = async (itemUpdateParams: ItemUpdateParams) => {
+        await updateItem(itemUpdateParams)
+        // setIsEditModalOpen(false)
+        refreshItemList()
     }
     const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.preventDefault()
@@ -33,11 +39,14 @@ const ItemManagementPage = () => {
     const handleClickAddItem = () => {
         setIsAddModalOpen(true)
     }
+    const refreshItemList = () => {
+        getAllItems().then(items => setItemList(items))
+        console.log('REFRESH DOS ITENS')
+    }
 
     // Effects
     useEffect(() => {
-        // Fetches all items from db/firebase.
-        getAllItems().then(items => setItemList(items))
+        refreshItemList()
     }, [])
 
     return (
@@ -46,13 +55,14 @@ const ItemManagementPage = () => {
                 <button style={{ marginRight: 8, width: 60 }}><i className='fa-solid fa-barcode' /></button>
                 <button style={{ marginRight: 8, width: 60 }} onClick={handleClickAddItem}><i className='fa-solid fa-plus' /></button>
                 <input
-                    type="text"
+                    type='text'
                     value={searchInput}
                     onChange={handleSearchInputChange}
                     placeholder='Filtrar...'
                     style={{ marginBottom: 0, flexGrow: 4 }}
                 />
             </div>
+            {/* TO-DO: extract list component */}
             <div className='list-header'>
                 <span style={{ width: 55, marginRight: 16 }}>Quant.</span>
                 <span style={{ flexGrow: 4 }}>Nome</span>
@@ -77,6 +87,7 @@ const ItemManagementPage = () => {
             }
             { isEditModalOpen &&
                 <EditItemModal
+                    handleUpdateItem={handleUpdateItem}
                     selectedItem={selectedItem}
                     setIsEditModalOpen={setIsEditModalOpen}
                 />
