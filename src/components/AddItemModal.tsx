@@ -11,27 +11,21 @@ interface AddItemModal {
 }
 
 const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => {
-    const [isFormOpen, setIsFormOpen] = useState<boolean>(false)
-    const inputRef = useRef<HTMLInputElement>(null)
-
-    useEffect(() => {
-        isFormOpen && inputRef.current?.focus()
-    }, [isFormOpen])
-
     // State
-  const [amount, setAmount] = useState<number>(0)
-  const [name, setName] = useState<string>('')
-  const [expirationDate, setExpirationDate] = useState<string>('')
-  const [price, setPrice] = useState<number>(0)
-  const [category, setCategory] = useState<string>('')
-  const [weight, setWeight] = useState<number>(0)
-  const [EAN, setEAN] = useState<string>('')
+    // const [isFormOpen, setIsFormOpen] = useState<boolean>(false)
+    // const inputRef = useRef<HTMLInputElement>(null)
+    const [amount, setAmount] = useState<number>(0)
+    const [name, setName] = useState<string>('')
+    const [expirationDate, setExpirationDate] = useState<string>('')
+    const [price, setPrice] = useState<number>(0)
+    const [category, setCategory] = useState<string>('')
+    const [weight, setWeight] = useState<number>(0)
+    const [EAN, setEAN] = useState<string>('')
 
     // Methods
     const handleClickCancel = () => setIsAddModalOpen(false)
-    const handleClickSave = () => {
-        setIsFormOpen(!isFormOpen)
-        handleAddNewItem({
+    const handleClickSave = async () => {
+        await handleAddNewItem({
             amount,
             name,
             price,
@@ -40,7 +34,14 @@ const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => 
             expirationDate: Timestamp.fromDate(new Date(expirationDate)),
             ean: EAN,
         })
+        setIsAddModalOpen(false)
     }
+
+    // Effects
+    // TO-DO: fix this focus effect
+    // useEffect(() => {
+    //     isFormOpen && inputRef.current?.focus()
+    // }, [isFormOpen])
 
     return (
         <dialog open>
