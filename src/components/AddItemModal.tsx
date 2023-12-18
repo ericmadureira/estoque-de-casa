@@ -12,9 +12,7 @@ interface AddItemModal {
 
 const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => {
     // State
-    // const [isFormOpen, setIsFormOpen] = useState<boolean>(false)
-    // const inputRef = useRef<HTMLInputElement>(null)
-    const [amount, setAmount] = useState<number>(0)
+    const [amount, setAmount] = useState<number>(1)
     const [name, setName] = useState<string>('')
     const [expirationDate, setExpirationDate] = useState<string>('')
     const [price, setPrice] = useState<number>(0)
@@ -37,12 +35,6 @@ const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => 
         setIsAddModalOpen(false)
     }
 
-    // Effects
-    // TO-DO: fix this focus effect
-    // useEffect(() => {
-    //     isFormOpen && inputRef.current?.focus()
-    // }, [isFormOpen])
-
     return (
         <dialog open>
             <article>
@@ -52,7 +44,7 @@ const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => 
                 </header>
 
                 {/* Inputs */}
-                <ModalInput label='Quant.' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAmount(Number(e.target.value)) }} value={amount} />
+                <ModalInput label='Quant.' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAmount(Number(e.target.value)) }} value={amount} autoFocus />
                 <ModalInput label='Nome' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }} value={name} />
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
                     <span>Validade: </span>
