@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import AddItemModal from '../../components/AddItemModal'
 import EditItemModal from '../../components/EditItemModal'
@@ -19,17 +18,16 @@ const ItemManagementPage = () => {
     const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false)
     const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false)
     const [selectedItem, setSelectedItem] = useState<Item>(EMPTY_ITEM)
-    const navigate = useNavigate()
 
     // Methods
     const handleAddNewItem = async (itemCreationParams: ItemCreationParams) => {
         await addNewItem(itemCreationParams)
-        // setIsAddModalOpen(false)
+        setIsAddModalOpen(false)
         refreshItemList()
     }
     const handleUpdateItem = async (itemUpdateParams: ItemUpdateParams) => {
         await updateItem(itemUpdateParams)
-        // setIsEditModalOpen(false)
+        setIsEditModalOpen(false)
         refreshItemList()
     }
     const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +39,6 @@ const ItemManagementPage = () => {
     }
     const refreshItemList = () => {
         getAllItems().then(items => setItemList(items))
-        console.log('REFRESH DOS ITENS')
     }
 
     // Effects
