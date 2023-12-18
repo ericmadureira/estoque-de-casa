@@ -3,7 +3,6 @@ import { Timestamp } from 'firebase/firestore'
 
 import ModalInput from './ModalInput'
 import { ItemCreationParams } from '../types/Item'
-import { serializeDate } from '../helpers/formatting'
 
 interface AddItemModal {
     handleAddNewItem: (itemCreationParams: ItemCreationParams) => Promise<void>

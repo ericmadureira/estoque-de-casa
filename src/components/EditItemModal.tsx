@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { deserializeDate, serializeDate } from '../helpers/formatting'
+import { formatDateBeforeSave, formatDateFromDatabase } from '../helpers/formatting'
 import ModalInput from './ModalInput'
 import { Item, ItemUpdateParams } from '../types/Item'
 
@@ -13,8 +13,7 @@ const EditItemModal = ({ handleUpdateItem, selectedItem, setIsEditModalOpen }: E
   // State
   const [amount, setAmount] = useState<number>(selectedItem.amount)
   const [name, setName] = useState<string>(selectedItem.name)
-  const [expirationDate, setExpirationDate] = useState<string>(
-    serializeDate(selectedItem.expirationDate.seconds).toISOString().split('T')[0])
+  const [expirationDate, setExpirationDate] = useState<string>(formatDateFromDatabase(selectedItem.expirationDate.seconds))
   const [price, setPrice] = useState<number>(selectedItem.price)
   const [category, setCategory] = useState<string>(selectedItem.category)
   const [weight, setWeight] = useState<number>(selectedItem.weight)
@@ -23,7 +22,7 @@ const EditItemModal = ({ handleUpdateItem, selectedItem, setIsEditModalOpen }: E
   // Methods
   const handleClickCancel = () => setIsEditModalOpen(false)
   const handleClickSave = async () => {
-    await handleUpdateItem({ id: selectedItem.id, amount, name: name, expirationDate: deserializeDate(expirationDate),
+    await handleUpdateItem({ id: selectedItem.id, amount, name: name, expirationDate: formatDateBeforeSave(expirationDate),
       price: price, category: category, weight: weight, ean: EAN })
   }
 
