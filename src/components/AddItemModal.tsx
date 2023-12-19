@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Timestamp } from 'firebase/firestore'
 
 import ModalInput from './ModalInput'

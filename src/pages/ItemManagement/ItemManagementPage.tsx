@@ -43,6 +43,7 @@ const ItemManagementPage = () => {
 
     // Effects
     useEffect(() => {
+        // TO-DO: implement cancel token from axios
         refreshItemList()
     }, [])
 
