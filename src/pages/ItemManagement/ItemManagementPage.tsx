@@ -50,8 +50,21 @@ const ItemManagementPage = () => {
     return (
         <div className='container'>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <button style={{ marginRight: 8, width: 60 }}><i className='fa-solid fa-barcode' /></button>
-                <button style={{ marginRight: 8, width: 60 }} onClick={handleClickAddItem}><i className='fa-solid fa-plus' /></button>
+                <button
+                    data-tooltip='Ler código de barras'
+                    data-placement='right'
+                    style={{ marginRight: 8, width: 60 }}
+                >
+                    <i className='fa-solid fa-barcode' />
+                </button>
+                <button
+                    data-tooltip='Adicionar manualmente'
+                    data-placement='right'
+                    style={{ marginRight: 8, width: 60 }}
+                    onClick={handleClickAddItem}
+                >
+                    <i className='fa-solid fa-plus' />
+                </button>
                 <input
                     type='text'
                     value={searchInput}
