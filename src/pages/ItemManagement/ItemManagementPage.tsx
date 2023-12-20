@@ -47,49 +47,65 @@ const ItemManagementPage = () => {
         refreshItemList()
     }, [])
 
+    // UI
+    const ScanBarcodeButton = () => (
+        <button
+            data-tooltip='Ler código de barras'
+            data-placement='right'
+            style={{ marginRight: 8, width: 60 }}
+        >
+            <i className='fa-solid fa-barcode' />
+        </button>
+    )
+    const ManualAddButton = () => (
+        <button
+            data-tooltip='Adicionar manualmente'
+            data-placement='right'
+            style={{ marginRight: 8, width: 60 }}
+            onClick={handleClickAddItem}
+        >
+            <i className='fa-solid fa-plus' />
+        </button>
+    )
+    const SearchInput = () => (
+        <input
+            type='text'
+            value={searchInput}
+            onChange={handleSearchInputChange}
+            placeholder='Filtrar...'
+            style={{ marginBottom: 0, flexGrow: 4 }}
+        />
+    )
+    const ListHeader = () => (
+        <div className='list-header'>
+            <span style={{ width: 55, marginRight: 16 }}>Quant.</span>
+            <span style={{ flexGrow: 4 }}>Nome</span>
+        </div>
+    )
+    const ItemList = () => (
+        <div style={{ width: '100%' }}>
+            { itemList.filter((item: Item) => item.name.toLowerCase().includes(searchInput)).map(item => {
+                return (
+                    <ItemRow
+                        item={item}
+                        key={item.id}
+                        setIsEditModalOpen={setIsEditModalOpen}
+                        setSelectedItem={setSelectedItem}
+                    />
+                )
+            })}
+        </div>
+    )
+
     return (
         <div className='container'>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <button
-                    data-tooltip='Ler código de barras'
-                    data-placement='right'
-                    style={{ marginRight: 8, width: 60 }}
-                >
-                    <i className='fa-solid fa-barcode' />
-                </button>
-                <button
-                    data-tooltip='Adicionar manualmente'
-                    data-placement='right'
-                    style={{ marginRight: 8, width: 60 }}
-                    onClick={handleClickAddItem}
-                >
-                    <i className='fa-solid fa-plus' />
-                </button>
-                <input
-                    type='text'
-                    value={searchInput}
-                    onChange={handleSearchInputChange}
-                    placeholder='Filtrar...'
-                    style={{ marginBottom: 0, flexGrow: 4 }}
-                />
+                <ScanBarcodeButton />
+                <ManualAddButton />
+                <SearchInput />
             </div>
-            {/* TO-DO: extract list component */}
-            <div className='list-header'>
-                <span style={{ width: 55, marginRight: 16 }}>Quant.</span>
-                <span style={{ flexGrow: 4 }}>Nome</span>
-            </div>
-            <div style={{ width: '100%' }}>
-                { itemList.filter((item: Item) => item.name.toLowerCase().includes(searchInput)).map(item => {
-                    return (
-                        <ItemRow
-                            item={item}
-                            key={item.id}
-                            setIsEditModalOpen={setIsEditModalOpen}
-                            setSelectedItem={setSelectedItem}
-                        />
-                    )
-                })}
-            </div>
+            <ListHeader />
+            <ItemList />
             { isAddModalOpen &&
                 <AddItemModal
                     handleAddNewItem={handleAddNewItem}
