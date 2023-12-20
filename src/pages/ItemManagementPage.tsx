@@ -6,8 +6,6 @@ import ItemRow from '../components/ItemRow/ItemRow'
 import { addNewItem, getAllItems, updateItem } from '../services/item-data'
 import { Item, ItemCreationParams, ItemUpdateParams } from '../types/Item'
 
-import './ItemManagementPage.css'
-
 const EMPTY_ITEM: Item = { id: '', amount: 0, name: '', expirationDate: { seconds: 0, nanoseconds: 0 },
     price: 0, category: '', weight: 0, ean: '' }
 
