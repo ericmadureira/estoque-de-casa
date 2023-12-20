@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-import AddItemModal from '../../components/AddItemModal'
-import EditItemModal from '../../components/EditItemModal'
-import ItemRow from '../../components/ItemRow/ItemRow'
-import { addNewItem, getAllItems, updateItem } from '../../services/item-data'
-import { Item, ItemCreationParams, ItemUpdateParams } from '../../types/Item'
+import AddItemModal from '../components/AddItemModal'
+import EditItemModal from '../components/EditItemModal'
+import ItemRow from '../components/ItemRow/ItemRow'
+import { addNewItem, getAllItems, updateItem } from '../services/item-data'
+import { Item, ItemCreationParams, ItemUpdateParams } from '../types/Item'
 
 import './ItemManagementPage.css'
 
@@ -77,9 +77,9 @@ const ItemManagementPage = () => {
         />
     )
     const ListHeader = () => (
-        <div className='list-header'>
+        <div style={{display: 'flex', fontWeight: 'bold' }}>
             <span style={{ width: 55, marginRight: 16 }}>Quant.</span>
-            <span style={{ flexGrow: 4 }}>Nome</span>
+            <span>Nome</span>
         </div>
     )
     const ItemList = () => (
