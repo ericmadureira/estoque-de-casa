@@ -1,22 +1,22 @@
 # Estoque de Casa (pt-BR)
-**Aplicação para controlar os itens da despensa da sua casa.**
+🛒 Aplicação para controlar os itens da despensa da sua casa.
 
 ## Funcionalidades
-- (Tela) **Lista do estoque atual**
+- (Tela) Lista do estoque atual
   - Botões rápidos de filtro e agrupamento: por categoria, validade próxima, estoque acabando, etc.
   - Botões de edição e dar baixa (zerar quantidade)
   - Alerta de item faltante na linha
   - Tooltip com foto do produto ao passar o mouse
-- (Modal) **Registrar novas compras por código de barra**
+- (Modal) Registrar novas compras por código de barra
   - Adicionar item manualmente ou usar código de barras com câmera do celular
   - Editar item manualmente
   - Opção de marcar item como recorrente em toda compra
-- (Tela) **Lista de compras automática**
+- (Tela) Lista de compras automática
   - Gerar lista de compras com base na dispensa atual (cron job ou apertar botão)
   - Lembrete perto de datas especiais como aniversários, são joão, natal, etc
   - Incluir itens recorrentes
   - Marcar item como opcional se o preço estiver bom (R$)
-- **Extras**
+- Extras
   - Login com google
   - Procurar mercados perto de mim
   - Comandos por voz
@@ -35,16 +35,16 @@ Criado e mantido por (Eric Madureira)[https://www.linkedin.com/in/eric-madureira
 ---
 
 # Estoque de Casa (en-US)
-**Pantry management application for your home.**
+🛒 Pantry management application for your home.
 
-## Funcionalidades / Features
+## Features
 - (Page) Current list of products
   - Filter buttons
   - Edit and zero amount buttons
   - Missing items alert
   - Picture tooltip on hover
 - (Modal) Register new items via bar code scan
-  - Manual add or sacn barcode
+  - Manual add or scan barcode
   - Edit manually
   - Mark as recurrent
 - (Page) Automatic shopping list
