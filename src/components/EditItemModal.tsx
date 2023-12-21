@@ -22,6 +22,7 @@ const EditItemModal = ({ handleUpdateItem, selectedItem, setIsEditModalOpen }: E
   // Methods
   const handleClickCancel = () => setIsEditModalOpen(false)
   const handleClickSave = async () => {
+    // TO-DO: add toast with success or error
     await handleUpdateItem({ id: selectedItem.id, amount, name: name, expirationDate: formatDateBeforeSave(expirationDate),
       price: price, category: category, weight: weight, ean: EAN })
   }
