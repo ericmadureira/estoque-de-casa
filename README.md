@@ -33,8 +33,9 @@
 4. Rode `npm start` pra iniciar a aplicação em http://localhost/
 
 ## Arquitetura
-- SPA feita com React conectada a um banco de dados noSQL Google Firestore
-- Função cloud rodando cron jobs escritos em node (código na pasta ./cloud-functions)
+- UI: React SPA started with CRA (needs upgrade)
+- Data storage: noSQL Google Firestore
+- Cloud: node cron jobs (./cloud-functions)
 
 Criado e mantido por (Eric Madureira)[https://www.linkedin.com/in/eric-madureira/].
 
