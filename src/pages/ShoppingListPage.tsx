@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 
-import { Item } from '../../types/Item'
-
-import './ShoppingListPage.css'
+import { Item } from '../types/Item'
 
 const ShoppingListPage = () => {
     const [shoppingList, setShoppingList] = useState<Item[]>([])
@@ -21,8 +19,8 @@ const ShoppingListPage = () => {
     }
 
     return (
-        <div className='shopping-list-page__page-wrapper'>
-            <h1>Shopping List page</h1>
+        <div className='container'>
+            <h1>Lista de compra</h1>
 
             <div className='shopping-list-page__inputs-wrapper'>
                 <input type='text' value={itemName} onChange={(event) => setItemName(event.target.value)} />
