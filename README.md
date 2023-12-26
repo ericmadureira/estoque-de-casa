@@ -12,7 +12,7 @@
   - Editar item manualmente
   - Opção de marcar item como recorrente em toda compra
 - (Tela) Lista de compras automática
-  - Gerar lista de compras com base na dispensa atual (cron job ou apertar botão)
+  - Gerar lista de compras com base na dispensa atual (botão)
   - Lembrete perto de datas especiais como aniversários, são joão, natal, etc
   - Incluir itens recorrentes
   - Marcar item como opcional se o preço estiver bom (R$)
@@ -23,12 +23,18 @@
   - Histórico de preços por produto
   - Dar baixa escaneando a nota fiscal
   - Fazer scraping em sites de oferta
+  - Gerar lista de compras automaticamente no dia e horário escolhidos
+  - Criar lembretes recorrentes no google agenda
 
 ## Como rodar
 1. Abra um terminal e siga até a pasta do projeto
 2. Crie um arquivo .env na pasta raíz usando o .env.example como exemplo
 3. Rode `npm install` para instalar as dependências
 4. Rode `npm start` pra iniciar a aplicação em http://localhost/
+
+## Arquitetura
+- SPA feita com React conectada a um banco de dados noSQL Google Firestore
+- Função cloud rodando cron jobs escritos em node (código na pasta ./cloud-functions)
 
 Criado e mantido por (Eric Madureira)[https://www.linkedin.com/in/eric-madureira/].
 
