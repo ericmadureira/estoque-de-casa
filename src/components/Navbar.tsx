@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -8,7 +9,7 @@ const Navbar = () => {
                 justifyContent: 'space-between', alignItems: 'center',
                 color: 'white', padding: 16, marginBottom: 16
         }}>
-            <span style={{ fontWeight: 'bold' }}>Estoque de Casa</span>
+            <Link to='/'><span style={{ fontWeight: 'bold', color: 'white' }}>Estoque de Casa</span></Link>
             <i className='fa-regular fa-circle-user fa-2x' />
         </div>
     )

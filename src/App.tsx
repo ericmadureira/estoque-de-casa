@@ -1,25 +1,25 @@
 import React from 'react'
 import {
-    BrowserRouter as Router,
+    BrowserRouter,
     Routes,
     Route,
 } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import ItemManagementPage from './pages/ItemManagementPage'
-import ShoppingListPage from './pages/ShoppingList/ShoppingListPage'
+import ShoppingListPage from './pages/ShoppingListPage'
 
 
 function App(): JSX.Element {
  	return (
     	<div className='App'>
-            <Navbar />
-            <Router>
+            <BrowserRouter>
+                <Navbar />
                 <Routes>
                     <Route path='/' element={<ItemManagementPage />} />
                     <Route path='/lista' element={<ShoppingListPage />} />
                 </Routes>
-            </Router>
+            </BrowserRouter>
     	</div>
   	)
 }
