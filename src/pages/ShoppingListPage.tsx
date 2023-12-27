@@ -20,29 +20,22 @@ const ShoppingListPage = () => {
 
     return (
         <div className='container'>
-            <h1>Lista de compra</h1>
+            <h1 style={{ marginBottom: 16 }}>Lista de compra</h1>
 
-            <div className='shopping-list-page__inputs-wrapper'>
-                <input type='text' value={itemName} onChange={(event) => setItemName(event.target.value)} />
+            <span>Recorrentes: </span>
+            <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
+                <span><input type='checkbox' /> Manga</span>
+                <span><input type='checkbox' /> Pêra</span>
+                <span><input type='checkbox' /> Banana</span>
             </div>
 
-            <button
-                style={{ width: '80px' }}
-                onClick={addShoppingListItem}
-            >
-                Adicionar item
-            </button>
+            <hr />
 
-            <div className='shopping-list-page__list-wrapper'>
-                <ol>
-                    { shoppingList.map(item =>
-                        <li key={item.name}>
-                            <span style={{ marginRight: '10px' }}>id: {item.id}</span>
-                            <span style={{ marginRight: '10px' }}>{item.name}</span>
-                            <button onClick={() => setShoppingList(shoppingList.filter(item => item.name !== itemName))}> X </button>
-                        </li>
-                    )}
-                </ol>
+            <span>Somente essa vez: </span>
+            <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
+                <span><input type='checkbox' /> Pão</span>
+                <span><input type='checkbox' /> Queijo</span>
+                <span><input type='checkbox' /> Presunto</span>
             </div>
         </div>
     )
