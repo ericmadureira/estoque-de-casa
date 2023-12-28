@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Item } from '../types/Item'
 
 const ShoppingListPage = () => {
+    const suggestedShoppingDate = new Date().toLocaleDateString('pt-BR', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })
     const [shoppingList, setShoppingList] = useState<Item[]>([])
     const [itemName, setItemName] = useState('')
     const addShoppingListItem = () => {
@@ -20,8 +21,7 @@ const ShoppingListPage = () => {
 
     return (
         <div className='container'>
-            <h1 style={{ marginBottom: 16 }}>Lista de compra</h1>
-
+            <p>{suggestedShoppingDate}</p>
             <span>Recorrentes: </span>
             <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
                 <span><input type='checkbox' /> Manga</span>
