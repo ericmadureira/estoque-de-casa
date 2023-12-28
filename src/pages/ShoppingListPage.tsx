@@ -22,21 +22,22 @@ const ShoppingListPage = () => {
     return (
         <div className='container'>
             <p>{suggestedShoppingDate}</p>
-            <span>Recorrentes: </span>
-            <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
-                <span><input type='checkbox' /> Manga</span>
-                <span><input type='checkbox' /> Pêra</span>
-                <span><input type='checkbox' /> Banana</span>
-            </div>
-
-            <hr />
-
-            <span>Somente essa vez: </span>
-            <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
-                <span><input type='checkbox' /> Pão</span>
-                <span><input type='checkbox' /> Queijo</span>
-                <span><input type='checkbox' /> Presunto</span>
-            </div>
+            <details open>
+                <summary>Recorrentes: </summary>
+                <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span><input type='checkbox' /> Manga</span>
+                    <span><input type='checkbox' /> Pêra</span>
+                    <span><input type='checkbox' /> Banana</span>
+                </div>
+            </details>
+            <details>
+                <summary>Somente essa vez: </summary>
+                <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span><input type='checkbox' /> Pão</span>
+                    <span><input type='checkbox' /> Queijo</span>
+                    <span><input type='checkbox' /> Presunto</span>
+                </div>
+            </details>
         </div>
     )
 }
