@@ -8,7 +8,7 @@ export interface ItemCreationParams {
     name: string
     expirationDate: ExpirationDate
     // TO-DO: store price as cents
-    price: number //
+    price: number
     category: string
     weight: number // grams
     ean: string // unique identifier for products and same as bar code
