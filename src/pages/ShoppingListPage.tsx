@@ -23,21 +23,40 @@ const ShoppingListPage = () => {
         <div className='container'>
             <p>{suggestedShoppingDate}</p>
             <details open>
-                <summary>Recorrentes: </summary>
+                <summary style={{ marginBottom: 8}}>Recorrentes</summary>
                 <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span><input type='checkbox' /> Manga</span>
-                    <span><input type='checkbox' /> Pêra</span>
-                    <span><input type='checkbox' /> Banana</span>
+                    <span style={{ display: 'flex', alignItems: 'center', marginTop: 8 }}>
+                        <input type='checkbox' />
+                        <input type='number' style={{ height: 30, margin: '0 8px 0 0', padding: '8px 6px', width: 60 }}/>
+                        Manga
+                    </span>
+                    <span style={{ display: 'flex', alignItems: 'center', marginTop: 8 }}>
+                        <input type='checkbox' />
+                        <input type='number' style={{ height: 30, margin: '0 8px 0 0', padding: '8px 6px', width: 60 }}/>
+                        Pêra
+                    </span>
+                    <span style={{ display: 'flex', alignItems: 'center', marginTop: 8 }}>
+                        <input type='checkbox' />
+                        <input type='number' style={{ height: 30, margin: '0 8px 0 0', padding: '8px 6px', width: 60 }}/>
+                        Banana
+                    </span>
                 </div>
             </details>
             <details>
-                <summary>Somente essa vez: </summary>
+                <summary style={{ marginBottom: 8}}>Somente essa vez</summary>
                 <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
                     <span><input type='checkbox' /> Pão</span>
                     <span><input type='checkbox' /> Queijo</span>
                     <span><input type='checkbox' /> Presunto</span>
                 </div>
             </details>
+            <button
+                data-tooltip='Adiciona os itens selecionados ao estoque'
+                data-placement='bottom'
+            >
+                <i className='fa-solid fa-cart-plus' />
+                <span style={{ marginLeft: 8 }}>Concluir compra</span>
+            </button>
         </div>
     )
 }
