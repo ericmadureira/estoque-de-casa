@@ -6,7 +6,7 @@ interface ShoppingItemProps {
     item: Item
 }
 
-const recurringItems = [{
+const mockRecurringItems = [{
     id: 'example1',
     name: 'Manga',
     amount: 1,
@@ -35,6 +35,37 @@ const recurringItems = [{
     category: 'default',
     weight: 1,
     ean: '3245253196',
+}]
+
+const mockSingleItems = [{
+    id: 'example4',
+    name: 'Pão de forma',
+    amount: 2,
+    expirationDate: { seconds: 1, nanoseconds: 1 },
+    price: 6,
+    category: 'default',
+    weight: 400,
+    ean: '75276',
+},
+{
+    id: 'example5',
+    name: 'Queijo mussarela',
+    amount: 1,
+    expirationDate: { seconds: 1, nanoseconds: 1 },
+    price: 6,
+    category: 'default',
+    weight: 400,
+    ean: '47273575',
+},
+{
+    id: 'example6',
+    name: 'Torta de banana',
+    amount: 2,
+    expirationDate: { seconds: 1, nanoseconds: 1 },
+    price: 1,
+    category: 'default',
+    weight: 1,
+    ean: '5655343',
 }]
 
 const ShoppingListPage = () => {
@@ -73,15 +104,13 @@ const ShoppingListPage = () => {
                 <summary style={{ marginBottom: 8}}>Recorrentes</summary>
                 <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
                     {/* TO-DO: Abstract logic to another component */}
-                    {recurringItems.map(item => <ShoppingItem key={item.id} item={item} />)}
+                    {mockRecurringItems.map(item => <ShoppingItem key={item.id} item={item} />)}
                 </div>
             </details>
             <details>
                 <summary style={{ marginBottom: 8}}>Somente essa vez</summary>
                 <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span><input type='checkbox' /> Pão</span>
-                    <span><input type='checkbox' /> Queijo</span>
-                    <span><input type='checkbox' /> Presunto</span>
+                    {mockSingleItems.map(item => <ShoppingItem key={item.id} item={item} />)}
                 </div>
             </details>
             {/* TO-DO: add "select all" button */}
