@@ -12,12 +12,12 @@ interface AddItemModal {
 const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => {
     // State
     const [amount, setAmount] = useState<number>(1)
-    const [name, setName] = useState<string>('')
+    const [name, setName] = useState<string>('Meu produto')
     const [expirationDate, setExpirationDate] = useState<string>('')
-    const [price, setPrice] = useState<number>(0)
-    const [category, setCategory] = useState<string>('')
-    const [weight, setWeight] = useState<number>(0)
-    const [EAN, setEAN] = useState<string>('')
+    const [price, setPrice] = useState<number>(1)
+    const [category, setCategory] = useState<string>('Padrão')
+    const [weight, setWeight] = useState<number>(1)
+    const [EAN, setEAN] = useState<string>('000000')
 
     // Methods
     const handleClickCancel = () => setIsAddModalOpen(false)
@@ -51,6 +51,7 @@ const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => 
                     <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setExpirationDate(e.target.value) }} style={{ margin: '0 0 0 16px', width: 215 }} type='date' value={expirationDate} />
                 </div>
                 <ModalInput label='Preço' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setPrice(Number(e.target.value)) }} value={price} />
+                {/* TO-DO: Ellaborate categories logic and dropdown */}
                 <ModalInput label='Categoria' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCategory(e.target.value) }} value={category} />
                 <ModalInput label='Peso' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setWeight(Number(e.target.value)) }} value={weight} />
                 <ModalInput label='EAN' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setEAN(e.target.value) }} value={EAN} />
