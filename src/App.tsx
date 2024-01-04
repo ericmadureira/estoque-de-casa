@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     BrowserRouter,
+    Navigate,
     Routes,
     Route,
 } from 'react-router-dom'
@@ -16,6 +17,7 @@ function App(): JSX.Element {
             <BrowserRouter>
                 <Navbar />
                 <Routes>
+                    <Route path='/' element={<Navigate to={STOCK_PAGE_PATH} />} />
                     <Route path={STOCK_PAGE_PATH} element={<ItemManagementPage />} />
                     <Route path={SHOPPING_LIST_PAGE_PATH} element={<ShoppingListPage />} />
                 </Routes>
