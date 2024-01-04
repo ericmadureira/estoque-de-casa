@@ -8,7 +8,7 @@ import {
 import Navbar from './components/Navbar'
 import ItemManagementPage from './pages/ItemManagementPage'
 import ShoppingListPage from './pages/ShoppingListPage'
-
+import { SHOPPING_LIST_PAGE_PATH, STOCK_PAGE_PATH } from './routes'
 
 function App(): JSX.Element {
  	return (
@@ -16,8 +16,8 @@ function App(): JSX.Element {
             <BrowserRouter>
                 <Navbar />
                 <Routes>
-                    <Route path='/' element={<ItemManagementPage />} />
-                    <Route path='/lista' element={<ShoppingListPage />} />
+                    <Route path={STOCK_PAGE_PATH} element={<ItemManagementPage />} />
+                    <Route path={SHOPPING_LIST_PAGE_PATH} element={<ShoppingListPage />} />
                 </Routes>
             </BrowserRouter>
     	</div>
