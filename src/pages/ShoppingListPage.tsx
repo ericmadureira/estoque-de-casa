@@ -119,7 +119,7 @@ const ShoppingListPage = () => {
                 data-placement='bottom'
             >
                 <i className='fa-solid fa-cart-plus' />
-                {/* TO-DO: ellaborate update logic */}
+                {/* TO-DO: implement "finish shopping list" logic */}
                 <span style={{ marginLeft: 8 }}>Concluir compra</span>
             </button>
         </div>

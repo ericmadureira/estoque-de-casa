@@ -11,6 +11,7 @@ import ItemManagementPage from './pages/ItemManagementPage'
 import ShoppingListPage from './pages/ShoppingListPage'
 import { SHOPPING_LIST_PAGE_PATH, STOCK_PAGE_PATH } from './routes'
 
+// TO-DO: implement error boundary
 function App(): JSX.Element {
  	return (
     	<div className='App'>

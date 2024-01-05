@@ -51,11 +51,12 @@ const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => 
                     <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setExpirationDate(e.target.value) }} style={{ margin: '0 0 0 16px', width: 215 }} type='date' value={expirationDate} />
                 </div>
                 <ModalInput label='Preço' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setPrice(Number(e.target.value)) }} value={price} />
-                {/* TO-DO: Ellaborate categories logic and dropdown */}
+                {/* TO-DO: Implement "categories and dropdown" logic */}
                 <ModalInput label='Categoria' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCategory(e.target.value) }} value={category} />
                 <ModalInput label='Peso' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setWeight(Number(e.target.value)) }} value={weight} />
                 <ModalInput label='EAN' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setEAN(e.target.value) }} value={EAN} />
 
+                {/* Buttons */}
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <button style={{ width: '50%', marginRight: 16 }} onClick={handleClickSave}>Salvar</button>
                     <button style={{ width: '50%', backgroundColor: '#FF6A74' }} onClick={handleClickCancel}>Cancelar</button>
