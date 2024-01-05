@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+
+import { SHOPPING_LIST_PAGE_PATH, STOCK_PAGE_PATH } from '../routes'
 
 interface RouteLinkProps {
     currentPath: string
@@ -15,6 +17,8 @@ const RouteLink = ({ currentPath, title, path }: RouteLinkProps): JSX.Element =>
 )
 
 const Navbar = () => {
+    const location = useLocation()
+    const { pathname } = location
 
     return (
         <nav className='container'
@@ -22,12 +26,9 @@ const Navbar = () => {
             alignItems: 'center', marginBottom: 16
         }}>
             <ul>
-                <li>
-                    <Link to='/'><span style={{ fontWeight: 'bold', color: 'white' }}>Estoque</span></Link>
-                </li> | 
-                <li>
-                    <Link to='/lista'><span style={{ fontWeight: 'bold', color: 'white' }}>Lista de compras</span></Link>
-                </li>
+                <RouteLink currentPath={pathname} path={STOCK_PAGE_PATH} title='Estoque'/>
+                 | 
+                <RouteLink currentPath={pathname} path={SHOPPING_LIST_PAGE_PATH} title='Lista de compras'/>
             </ul>
             <ul>
                 <li><i className='fa-regular fa-circle-user' style={{ fontSize: 24, color: 'white' }} /></li>
