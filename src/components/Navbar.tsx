@@ -1,10 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+interface RouteLinkProps {
+    currentPath: string
+    title: string
+    path: string
+}
+const RouteLink = ({ currentPath, title, path }: RouteLinkProps): JSX.Element => (
+    <li>
+        <Link to={path}>
+            <span style={{ color: 'white', fontWeight: currentPath === path ? 'bold' : 'normal' }}>{title}</span>
+        </Link>
+    </li>
+)
+
 const Navbar = () => {
+
     return (
         <nav className='container'
-            style={{ display: 'flex', backgroundColor: '#1095C1', 
+            style={{ display: 'flex', backgroundColor: '#1095C1',
             alignItems: 'center', marginBottom: 16
         }}>
             <ul>
