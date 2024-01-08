@@ -11,6 +11,7 @@ interface AddItemModal {
 
 const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => {
     // State
+    // TO-DO: reuse logic for both add and edit modals
     const [amount, setAmount] = useState<number>(1)
     const [name, setName] = useState<string>('Meu produto')
     const [expirationDate, setExpirationDate] = useState<string>('')
@@ -44,17 +45,14 @@ const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => 
                 </header>
 
                 {/* Inputs */}
-                <ModalInput label='Quant.' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAmount(Number(e.target.value)) }} value={amount} autoFocus />
-                <ModalInput label='Nome' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }} value={name} />
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-                    <span>Validade: </span>
-                    <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setExpirationDate(e.target.value) }} style={{ margin: '0 0 0 16px', width: 215 }} type='date' value={expirationDate} />
-                </div>
-                <ModalInput label='Preço' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setPrice(Number(e.target.value)) }} value={price} />
+                <ModalInput label='Quant.' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAmount(Number(e.target.value)) }} value={amount} inputFormat='number' autoFocus />
+                <ModalInput label='Nome' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }} value={name} inputFormat='text' />
+                <ModalInput label='Validade' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setExpirationDate(e.target.value) }} value={expirationDate} inputFormat='date' />
+                <ModalInput label='Preço' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setPrice(Number(e.target.value)) }} value={price} inputFormat='number' />
                 {/* TO-DO: Implement "categories and dropdown" logic */}
-                <ModalInput label='Categoria' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCategory(e.target.value) }} value={category} />
-                <ModalInput label='Peso' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setWeight(Number(e.target.value)) }} value={weight} />
-                <ModalInput label='EAN' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setEAN(e.target.value) }} value={EAN} />
+                <ModalInput label='Categoria' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCategory(e.target.value) }} value={category} inputFormat='text' />
+                <ModalInput label='Peso' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setWeight(Number(e.target.value)) }} value={weight} inputFormat='number' />
+                <ModalInput label='EAN' onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setEAN(e.target.value) }} value={EAN} inputFormat='text' />
 
                 {/* Buttons */}
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
