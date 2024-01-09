@@ -22,8 +22,8 @@ const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => 
 
     // Methods
     const handleClickCancel = () => setIsAddModalOpen(false)
+    // TO-DO: add toast with success or error
     const handleClickSave = async () => {
-        // TO-DO: add toast with success or error
         await handleAddNewItem({
             amount,
             name,
