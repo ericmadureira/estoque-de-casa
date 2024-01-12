@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import AddItemModal from '../components/AddItemModal'
 import EditItemModal from '../components/EditItemModal'
-import ItemRow from '../components/ItemRow/ItemRow'
+import ItemRow from '../components/ItemRow'
 import { addNewItem, getAllItems, updateItem } from '../services/item-data'
 import { Item, ItemCreationParams, ItemUpdateParams } from '../types/Item'
 
