@@ -11,7 +11,7 @@ interface AddItemModal {
 
 const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => {
     // State
-    // TO-DO: reuse logic for both add and edit modals
+    // TO-DO: try to reuse logic for both add and edit modals
     const [amount, setAmount] = useState<number>(1)
     const [name, setName] = useState<string>('Meu produto')
     const [expirationDate, setExpirationDate] = useState<string>('')
