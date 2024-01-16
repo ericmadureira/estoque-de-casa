@@ -26,19 +26,20 @@ const ItemRow = ({ item, setIsEditModalOpen, setSelectedItem }: ItemRowProps) =>
             <span style={{ display: 'flex', textWrap: 'wrap', textAlign: 'left', flexGrow: 4 }}>{name}</span>
             <div style={{ display: 'flex' }}>
                 <button
-                    style={{ marginRight: 8 }}
+                    style={{ marginRight: 8, padding: '2px 6px' }}
                     data-tooltip='Editar'
                     data-placement='left'
                     onClick={handleClickEdit}
-                    className='item-action-button'
                 >
+                    {/* Edit */}
                     <i className='fa-solid fa-pen-to-square' />
                 </button>
                 <button
                     data-tooltip='Zerar quantidade'
                     data-placement='left'
-                    className='item-action-button'
+                    style={{ padding: '2px 6px' }}
                 >
+                    {/* Set amount to zero */}
                     <i className='fa-regular fa-circle-xmark' />
                 </button>
             </div>
