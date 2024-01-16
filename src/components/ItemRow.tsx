@@ -2,8 +2,6 @@ import React from 'react'
 
 import { Item } from '../types/Item'
 
-import './ItemRow.css'
-
 interface ItemRowProps {
     item: Item
     setIsEditModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -21,7 +19,7 @@ const ItemRow = ({ item, setIsEditModalOpen, setSelectedItem }: ItemRowProps) =>
     }
 
     return (
-        <div className='item-row__wrapper'>
+        <div style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'flex-start', marginTop: 8, width: '100%'}}>
             <span style={{ width: 55, marginRight: 16, textAlign: 'left' }}>{amount} un.</span>
             <span style={{ display: 'flex', textWrap: 'wrap', textAlign: 'left', flexGrow: 4 }}>{name}</span>
             <div style={{ display: 'flex' }}>
