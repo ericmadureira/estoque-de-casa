@@ -23,6 +23,7 @@ const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => 
     // Methods
     const handleClickCancel = () => setIsAddModalOpen(false)
     // TO-DO: add toast with success or error
+    // TO-DO: click should add selected items to current stock
     const handleClickSave = async () => {
         await handleAddNewItem({
             amount,
