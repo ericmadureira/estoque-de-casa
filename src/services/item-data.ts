@@ -1,6 +1,6 @@
 import { addDoc, collection, doc, getDocs, query, updateDoc } from 'firebase/firestore'
 
-import { firebaseApp } from '../firebase'
+import { firebaseApp } from '../firebaseDB/firebase'
 import { Item, ItemCreationParams, ItemUpdateParams } from '../types/Item'
 
 // Adds item to db/firebase.
