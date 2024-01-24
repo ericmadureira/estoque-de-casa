@@ -3,10 +3,13 @@
 
 ## Features
 - (Page) Current list of products
-  - Filter buttons
+  - Filter by category
   - Edit and zero amount buttons
   - Missing items alert
   - Picture tooltip on hover
+  - Price history per item
+  - Minimum amount alert
+  - Close to exp. date alert
 - (Modal) Register new items via bar code scan
   - Manual add or scan barcode
   - Edit manually
@@ -15,12 +18,11 @@
   - Generate shopping list according to current stock (cron job or button)
   - Shopping reminder on holidays and special dates
   - Include recurring items
-  - Mark item as optional if there's a good deal
+  - Update current stock after buying list
 - Extras
   - Google login
   - Look for close supermarkets
   - Voice commands
-  - Price history per item
   - Scan receipt
   - Scrape deals websites
 
