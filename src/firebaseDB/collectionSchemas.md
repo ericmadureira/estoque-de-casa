@@ -1,3 +1,8 @@
 # collections
 ## products
-## shopping list
+  - non editables
+    - id (string)
+    - updateAt (date time)
+    - updateBy (string)
+## shopping-lists
+##
