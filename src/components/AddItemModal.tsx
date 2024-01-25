@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Timestamp } from 'firebase/firestore'
 
 import ModalInput from './ModalInput'
 import { ItemCreationParams } from '../types/Item'
@@ -31,7 +30,7 @@ const AddItemModal = ({ handleAddNewItem, setIsAddModalOpen }: AddItemModal) => 
             price,
             category,
             weight,
-            expirationDate: Timestamp.fromDate(new Date(expirationDate)),
+            expirationDate,
             ean: EAN,
         })
         setIsAddModalOpen(false)
