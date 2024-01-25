@@ -1,12 +1,7 @@
-export interface ExpirationDate {
-    seconds: number
-    nanoseconds: number
-}
-
 export interface ItemCreationParams {
     amount: number
     name: string
-    expirationDate: ExpirationDate
+    expirationDate: string // format: 2024-01-24
     // TO-DO: store price as cents
     price: number
     category: string
@@ -22,7 +17,7 @@ export interface ItemUpdateParams {
     id: string
     amount?: number
     name?: string
-    expirationDate?: ExpirationDate
+    expirationDate?: string
     price?: number
     category?: string
     weight?: number
