@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { Item } from '../types/Item'
 
-interface ShoppingItemProps {
+interface ShoppingListItemProps {
     item: Item
 }
 
@@ -68,6 +68,14 @@ const mockSingleItems = [{
     ean: '5655343',
 }]
 
+const ShoppingListItem = ({ item }: ShoppingListItemProps): JSX.Element => (
+    <span style={{ display: 'flex', alignItems: 'center', marginTop: 8 }}>
+        <input type='checkbox' value={item.amount} />
+        <input type='number' style={{ height: 30, margin: '0 8px 0 0', padding: '8px 6px', width: 60 }}/>
+        {item.name}
+    </span>
+)
+
 const ShoppingListPage = () => {
     // Mock
     const suggestedShoppingDate = new Date().toLocaleDateString('pt-BR', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })
@@ -88,15 +96,6 @@ const ShoppingListPage = () => {
         }])
     }
 
-    // UI
-    const ShoppingItem = ({ item }: ShoppingItemProps): JSX.Element => (
-        <span style={{ display: 'flex', alignItems: 'center', marginTop: 8 }}>
-            <input type='checkbox' value={item.amount} />
-            <input type='number' style={{ height: 30, margin: '0 8px 0 0', padding: '8px 6px', width: 60 }}/>
-            {item.name}
-        </span>
-    )
-
     return (
         <div className='container'>
             <p>{suggestedShoppingDate}</p>
@@ -104,13 +103,13 @@ const ShoppingListPage = () => {
                 <summary style={{ marginBottom: 8}}>Recorrentes</summary>
                 <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
                     {/* TO-DO: Abstract logic to another component */}
-                    {mockRecurringItems.map(item => <ShoppingItem key={item.id} item={item} />)}
+                    {mockRecurringItems.map(item => <ShoppingListItem key={item.id} item={item} />)}
                 </div>
             </details>
-            <details>
+            <details open>
                 <summary style={{ marginBottom: 8}}>Somente essa vez</summary>
                 <div className='container' style={{ display: 'flex', flexDirection: 'column' }}>
-                    {mockSingleItems.map(item => <ShoppingItem key={item.id} item={item} />)}
+                    {mockSingleItems.map(item => <ShoppingListItem key={item.id} item={item} />)}
                 </div>
             </details>
             {/* TO-DO: add "select all" button */}
