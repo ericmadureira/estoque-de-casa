@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import { formatDateBeforeSave, formatDateFromDatabase } from '../helpers/formatting'
 import ModalInput from './ModalInput'
 import { Item, ItemUpdateParams } from '../types/Item'
 
@@ -13,7 +12,7 @@ const EditItemModal = ({ handleUpdateItem, selectedItem, setIsEditModalOpen }: E
 	// State
 	const [amount, setAmount] = useState<number>(selectedItem.amount)
 	const [name, setName] = useState<string>(selectedItem.name)
-	const [expirationDate, setExpirationDate] = useState<string>(formatDateFromDatabase(selectedItem.expirationDate.seconds))
+	const [expirationDate, setExpirationDate] = useState<string>(selectedItem.expirationDate)
 	const [price, setPrice] = useState<number>(selectedItem.price)
 	const [category, setCategory] = useState<string>(selectedItem.category)
 	const [weight, setWeight] = useState<number>(selectedItem.weight)
@@ -23,7 +22,7 @@ const EditItemModal = ({ handleUpdateItem, selectedItem, setIsEditModalOpen }: E
 	const handleClickCancel = () => setIsEditModalOpen(false)
 	const handleClickSave = async () => {
 		// TO-DO: add toast with success or error
-		await handleUpdateItem({ id: selectedItem.id, amount, name: name, expirationDate: formatDateBeforeSave(expirationDate),
+		await handleUpdateItem({ id: selectedItem.id, amount, name: name, expirationDate: expirationDate,
 			price: price, category: category, weight: weight, ean: EAN })
 	}
 
