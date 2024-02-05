@@ -3,16 +3,24 @@ import { addDoc, collection, doc, getDocs, query, updateDoc } from 'firebase/fir
 import { firebaseApp } from '../firebaseDB/firebase'
 import { Item, ItemCreationParams, ItemUpdateParams } from '../types/Item'
 
-// Adds item to db/firebase.
-export const addNewItem = async (itemCreationParams: ItemCreationParams) => {
+/**
+ * Adds a new item to the Firebase database.
+ * @param {ItemCreationParams} item - The item to be added.
+ */
+export const addNewItem = async (item: ItemCreationParams) => {
     try {
-        await addDoc(collection(firebaseApp, 'products'), { ...itemCreationParams })
-    } catch (err) {
-        console.log('ERROR - Add New Item: ', err)
+        await addDoc(collection(firebaseApp, 'products'), { ...item })
+    } catch (error) {
+        console.error('Error adding new item:', error)
     }
 }
 
-export const updateItem = async (updateParams: ItemUpdateParams) => {
+/**
+ * Update an item in the database.
+ * @param updateParams - The parameters for updating the item.
+ * @returns Promise<void>
+ */
+export const updateItem = async (updateParams: { id: string, /* add other required types */ }): Promise<void> => {
     try {
         const productCollectionRef = doc(firebaseApp, 'products', updateParams.id);
         await updateDoc(productCollectionRef, { ...updateParams });
@@ -21,11 +29,8 @@ export const updateItem = async (updateParams: ItemUpdateParams) => {
     }
 }
 
-export const getAllItems = async () => {
-    const q = query(collection(firebaseApp, 'products'))
-    const querySnapshot = await getDocs(q)
+export const getAllItems = async (): Promise<Item[]> => {
+    const querySnapshot = await getDocs(collection(firebaseApp, 'products'))
 
-    return querySnapshot.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() } as Item
-    })
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as Item))
 }
