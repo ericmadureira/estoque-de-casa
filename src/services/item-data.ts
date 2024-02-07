@@ -20,7 +20,7 @@ export const addNewItem = async (item: ItemCreationParams) => {
  * @param updateParams - The parameters for updating the item.
  * @returns Promise<void>
  */
-export const updateItem = async (updateParams: { id: string, /* add other required types */ }): Promise<void> => {
+export const updateItem = async (updateParams: ItemUpdateParams): Promise<void> => {
     try {
         const productCollectionRef = doc(firebaseApp, 'products', updateParams.id);
         await updateDoc(productCollectionRef, { ...updateParams });
