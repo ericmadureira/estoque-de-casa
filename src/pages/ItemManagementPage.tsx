@@ -9,6 +9,7 @@ import { Item, ItemCreationParams, ItemUpdateParams } from '../types/Item'
 const EMPTY_ITEM: Item = { id: '', amount: 0, name: '', expirationDate: '2024-01-25',
     price: 0, category: '', weight: 0, ean: '' }
 
+    // TO-DO: change page to focus on displaying current status, while hiding edit option a bit.
 const ItemManagementPage = () => {
     // State
     const [itemList, setItemList] = useState<Item[]>([])
@@ -65,6 +66,7 @@ const ItemManagementPage = () => {
             <i className='fa-solid fa-plus' />
         </button>
     )
+    // TO-DO: fix disappearing input focus after typing on search.
     const SearchInput = () => (
         <input
             type='text'
