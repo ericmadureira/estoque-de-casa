@@ -114,7 +114,7 @@ const ShoppingListPage = () => {
             </details>
             {/* TO-DO: add "select all" button */}
             <button
-                data-tooltip='Adiciona os itens selecionados ao estoque'
+                data-tooltip='Salva a lista, e adiciona itens selecionados ao estoque'
                 data-placement='bottom'
             >
                 <i className='fa-solid fa-cart-plus' />
